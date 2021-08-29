@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,11 +23,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-@gnipn)w1ebi6&md7^$3%6-he#-30_uo12y*!jw-b$@qfve$pz"
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -79,6 +75,15 @@ WSGI_APPLICATION = "quiz.wsgi.application"
 # DATABASE_URL: postgres://{database_user}:{database_password}@{connection}/{database_name}
 
 DATABASES = {"default": dj_database_url.config()}
+
+# Switch configuration based on the environment role development/production
+ENV_ROLE = os.getenv("ENV_ROLE", "development")
+if ENV_ROLE == "development":
+    DEBUG = True
+else:
+    DEBUG = False
+
+ALLOWED_HOSTS = []
 
 
 # Password validation

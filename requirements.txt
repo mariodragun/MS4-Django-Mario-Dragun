@@ -2,6 +2,7 @@ appdirs==1.4.4
 asgiref==3.4.1
 black==21.7b0
 click==8.0.1
+dj-database-url==0.5.0
 django==3.2.6
 flake8==3.9.2
 mccabe==0.6.1

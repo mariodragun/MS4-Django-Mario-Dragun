@@ -13,8 +13,6 @@ class Question(models.Model):
     description = models.TextField()
     image = models.ImageField(blank=True, null=True)
 
-    answers = models.ForeignKey("Answer", on_delete=models.CASCADE)
-
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, db_index=True)
 
@@ -28,6 +26,7 @@ class Answer(models.Model):
     def __str__(self) -> str:
         return self.answer
 
+    question = models.ForeignKey("Question", on_delete=models.CASCADE)
     answer = models.TextField()
     is_correct = models.BooleanField()
 

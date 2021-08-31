@@ -85,7 +85,8 @@ if ENV_ROLE == "development":
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["ms4-django-project-quiz.herokuapp.com",]
+
 
 
 # Password validation

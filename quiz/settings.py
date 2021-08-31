@@ -88,7 +88,6 @@ else:
 ALLOWED_HOSTS = ["ms4-django-project-quiz.herokuapp.com",]
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 

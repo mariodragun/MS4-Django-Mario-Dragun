@@ -74,17 +74,19 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - Navigate to [Heroku](https://id.heroku.com/login)
 
-- Press Button new
+- Register on [Heruku](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_button_new.JPG)
 
-- Select Create a New App,enter the app name and select region
+- Press Button [New](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_button_new.JPG)
 
-- Press Resource / add-ons and search for Heruku Postgres database
+- Select Create a New App, enter the [app name and select region](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_create_new_app.JPG)
+
+- Press Resource / add-ons and search for [Heruku Postgres database](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heroku_postgres_database.JPG)
 
 
 # Configuration of connection Github Repository - Heruku
 
-- Click the Settings tab and then click the Reveal Config Vars button and add the following
+- Click the Settings tab and then click the [Reveal Config Vars button](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_config_vars.JPG) and add the following
 
 - Click the Settings tab and then click the Reveal Config Vars button and add the following
 
-- Select the Deploy tab and click Enable Automation Deployment 
+- Select the [Deploy](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_deployment.JPG) tab and click Enable Automation Deployment 

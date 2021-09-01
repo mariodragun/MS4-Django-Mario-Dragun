@@ -1,12 +1,14 @@
-#### The Ultimate Quiz Online
+### The Ultimate Quiz Online
 
-### MS4 Code Institute Ultimate Quiz
+### Milestone 4 Code Institute 
+
 
 
 ## Summary:
 
 This project is my final project for the Code Institute's Full stack development program.
 The main goal of this project is to create online quiz using the Django framework.
+
 
 
 ## Target Audience:
@@ -16,11 +18,13 @@ The main goal of this project is to create online quiz using the Django framewor
 - People who want to expand their  general knowledge
 
 
+
 ## Site Owner Goals:
 
 - Provide the users interesting quizzes
 
 - Make a profit selling subscriptions for full membership 
+
 
 
 ## Technology used:
@@ -34,6 +38,7 @@ The main goal of this project is to create online quiz using the Django framewor
 - Bootstrap
 
 - Django
+
 
 
 ## Tools used:
@@ -53,7 +58,9 @@ The main goal of this project is to create online quiz using the Django framewor
 - Moquaps used to make wireframes
 
 
+
 ## Deployment:
+
 
 # Project setup:
 
@@ -68,6 +75,7 @@ The main goal of this project is to create online quiz using the Django framewor
 - Make regular commits after project change with quality descripton using commands: git add -A git commit -m "message"
 
 - Use git push command in CMD for code commits
+
 
 
 # Deployment to Heroku:
@@ -86,7 +94,5 @@ The main goal of this project is to create online quiz using the Django framewor
 # Configuration of connection Github Repository - Heruku
 
 - Click the Settings tab and then click the [Reveal Config Vars button](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_config_vars.JPG) and add the following
-
-- Click the Settings tab and then click the Reveal Config Vars button and add the following
 
 - Select the [Deploy](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_deployment.JPG) tab and click Enable Automation Deployment 

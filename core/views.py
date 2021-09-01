@@ -4,6 +4,17 @@ from django.shortcuts import get_object_or_404, render
 from django.template import loader
 
 
+def index(request):
+    """Basic index view."""
+
+    # load template
+    template = loader.get_template("core/base.html")
+    context = {}
+
+    # return response along with rendered template
+    return HttpResponse(template.render(context, request))
+
+
 def quiz(request, id):
     # load correct template
     template = loader.get_template("core/quiz.html")

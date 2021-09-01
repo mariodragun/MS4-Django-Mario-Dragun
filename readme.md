@@ -113,8 +113,8 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - Run powershelf commands to create super user on Django app: heroku run bash --app mariodragun/MS4-Django-Mario-Dragun, python manage.py migrate, python manage.py createsuperuser
 
-- Register superuser [name and password]()
+- Register superuser [name and password](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_superuser.JPG)
 
-- Create [quizz]() on Django App
+- Create [quizz](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/quiz_creation.JPG) on Django App
 
-- Create quizz [questions]()
+- Create quizz [questions](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/quiz_questions.JPG)

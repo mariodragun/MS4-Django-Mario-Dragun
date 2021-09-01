@@ -49,7 +49,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - [Github](https://github.com/) used for repository hosting service
 
-- [Herouku](https://id.heroku.com/login) used to deploy web application
+- [Heroku](https://id.heroku.com/login) used to deploy web application
 
 - Heroku Postgres used for database
 
@@ -72,7 +72,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - Create readme.md file and make initial commit
 
-- Make regular commits after project change with quality descripton using commands: git add -A git commit -m "message"
+- Make regular commits after project change with quality descripton using commands: git add -A and git commit -m "message"
 
 - Use git push command in CMD for code commits
 
@@ -82,7 +82,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - Navigate to [Heroku](https://id.heroku.com/login)
 
-- Register on [Heruku](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_button_new.JPG)
+- Register on [Heroku](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_button_new.JPG)
 
 - Press Button [New](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_button_new.JPG)
 
@@ -93,6 +93,28 @@ The main goal of this project is to create online quiz using the Django framewor
 
 #### Configuration of connection Github Repository - Heruku
 
+- Click the Deploy tab and select Connect to GitHub
+
+- Enter the repository name and search
+
+- When repository has been found, press the connect button
+
+
+#### Set environment variables
+
 - Click the Settings tab and then click the [Reveal Config Vars button](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_config_vars.JPG) and add the following
 
+
+#### Deployment`s final steps
+
 - Select the [Deploy](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_deployment.JPG) tab and click Enable Automation Deployment 
+
+- Install Heruku CLI on PC
+
+- Run powershelf commands to create super user on Django app: heroku run bash --app mariodragun/MS4-Django-Mario-Dragun, python manage.py migrate, python manage.py createsuperuser
+
+- Register superuser [name and password]()
+
+- Create [quizz]() on Django App
+
+- Create quizz [questions]()

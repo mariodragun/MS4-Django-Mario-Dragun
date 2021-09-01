@@ -3,6 +3,8 @@
     <span> Quiz max score: {{quiz_object.score}} </span>
 
     {% for question in questions %}
+        <form action="{% url 'quiz:index' quiz_object.id %}" method="post">
+        {% csrf_token %}
         <fieldset>
             <legend><h1>{{ question.title }}</h1></legend>
             {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
@@ -11,5 +13,7 @@
                 <label for="choice{{ forloop.counter }}">{{ answer.answer }}</label><br>
             {% endfor %}
         </fieldset>
+        <input type="submit" value="Answer">
+        </form>
     {% endfor %}
 {% endif %}

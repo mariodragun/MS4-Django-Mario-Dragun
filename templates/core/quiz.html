@@ -1,20 +1,28 @@
-{% if quiz_object %}
-    <span> Quiz name: {{quiz_object.title}}</span>
-    <span> Quiz max score: {{quiz_object.score}} </span>
+{% extends 'core/base.html'%}
 
-    {% for question in questions %}
-        <form action="{% url 'quiz:quiz_question' question.id %}" method="post">
-        {% csrf_token %}
-        <fieldset>
-            <legend><h1>{{ question.title }}</h1></legend>
-            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-            {% for answer in question.answers.all %}
-                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ answer.id }}">
-                <label for="choice{{ forloop.counter }}">{{ answer.answer }}</label><br>
-                <input type="hidden" name="quiz" value="{{ quiz_object.id }}" />
+{% block content %}
+    {% if quiz_object %}
+
+        {% include "core/quiz/quiz_description.html" %}
+
+        <ul class="list-group">
+            {% for question in questions %}
+                <li class="list-group-item">
+                    <form action="{% url 'quiz:quiz_question' question.id %}" method="post">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend><h1>{{ question.title }}</h1></legend>
+                        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                        {% for answer in question.answers.all %}
+                            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ answer.id }}">
+                            <label for="choice{{ forloop.counter }}">{{ answer.answer }}</label><br>
+                            <input type="hidden" name="quiz" value="{{ quiz_object.id }}" />
+                        {% endfor %}
+                    </fieldset>
+                    <input type="submit" value="Answer">
+                    </form>
+                </li>
             {% endfor %}
-        </fieldset>
-        <input type="submit" value="Answer">
-        </form>
-    {% endfor %}
-{% endif %}
+        </ul>
+    {% endif %}
+{% endblock %}

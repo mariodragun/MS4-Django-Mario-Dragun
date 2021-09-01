@@ -47,7 +47,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - Git pod
 
-- Github used for repository hosting service
+- [Github](https://github.com/) used for repository hosting service
 
 - [Herouku](https://id.heroku.com/login) used to deploy web application
 

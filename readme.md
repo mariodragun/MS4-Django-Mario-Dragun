@@ -1,17 +1,17 @@
-### The Ultimate Quiz Online
+# The Ultimate Quiz Online
 
-### Milestone 4 Code Institute 
+## Milestone 4 Code Institute 
 
 
 
-## Summary:
+### Summary:
 
 This project is my final project for the Code Institute's Full stack development program.
 The main goal of this project is to create online quiz using the Django framework.
 
 
 
-## Target Audience:
+### Target Audience:
 
 - General population who enjoy quizzes.
 
@@ -19,7 +19,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 
 
-## Site Owner Goals:
+### Site Owner Goals:
 
 - Provide the users interesting quizzes
 
@@ -27,7 +27,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 
 
-## Technology used:
+### Technology used:
 
 - HTML5
 
@@ -41,7 +41,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 
 
-## Tools used:
+### Tools used:
 
 - Visual code studio
 
@@ -59,10 +59,10 @@ The main goal of this project is to create online quiz using the Django framewor
 
 
 
-## Deployment:
+### Deployment:
 
 
-# Project setup:
+#### Project setup:
 
 - Create a new repository on [Git Hub](https://github.com) using code institute`s template
 
@@ -78,7 +78,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 
 
-# Deployment to Heroku:
+#### Deployment to Heroku:
 
 - Navigate to [Heroku](https://id.heroku.com/login)
 
@@ -91,7 +91,7 @@ The main goal of this project is to create online quiz using the Django framewor
 - Press Resource / add-ons and search for [Heruku Postgres database](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heroku_postgres_database.JPG)
 
 
-# Configuration of connection Github Repository - Heruku
+#### Configuration of connection Github Repository - Heruku
 
 - Click the Settings tab and then click the [Reveal Config Vars button](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_config_vars.JPG) and add the following
 

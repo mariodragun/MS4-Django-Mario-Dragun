@@ -1,5 +1,3 @@
-from django import template
-from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Quiz
 from django.template import loader
@@ -13,7 +11,7 @@ def quiz(request, id):
         # try and find quiz object based on the provided `id`
         quiz_object = Quiz.objects.get(id=id, is_active=True)
         # define context to be sent to template
-        context = {"quiz_object": quiz_object}
+        context = {"quiz_object": quiz_object, "questions": quiz_object.questions.all()}
     except Exception:
         return HttpResponse("Quiz not found or not active")
 

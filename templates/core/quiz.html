@@ -1,4 +1,15 @@
 {% if quiz_object %}
     <span> Quiz name: {{quiz_object.title}}</span>
     <span> Quiz max score: {{quiz_object.score}} </span>
+
+    {% for question in questions %}
+        <fieldset>
+            <legend><h1>{{ question.title }}</h1></legend>
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            {% for answer in question.answers.all %}
+                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ answer.id }}">
+                <label for="choice{{ forloop.counter }}">{{ answer.answer }}</label><br>
+            {% endfor %}
+        </fieldset>
+    {% endfor %}
 {% endif %}

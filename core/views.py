@@ -25,7 +25,11 @@ def quiz(request, id):
         # define context to be sent to template
         context = {"quiz_object": quiz_object, "questions": quiz_object.questions.all()}
     except Exception:
-        return HttpResponse("Quiz not found or not active")
+        # display exception error
+        error_template = loader.get_template("common/errors/http_404.html")
+        context = {}
+        # return response along with error template
+        return HttpResponse(error_template.render(context, request))
 
     return HttpResponse(template.render(context, request))
 

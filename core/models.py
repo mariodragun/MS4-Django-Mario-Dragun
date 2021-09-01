@@ -14,7 +14,7 @@ class Question(models.Model):
     description = models.TextField()
     image = models.ImageField(blank=True, null=True)
 
-    quiz = models.ForeignKey("Quiz", on_delete=models.CASCADE)
+    quiz = models.ForeignKey("Quiz", on_delete=models.CASCADE, related_name="questions")
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, db_index=True)
@@ -29,7 +29,7 @@ class Answer(models.Model):
     def __str__(self) -> str:
         return self.answer
 
-    question = models.ForeignKey("Question", on_delete=models.CASCADE)
+    question = models.ForeignKey("Question", on_delete=models.CASCADE, related_name="answers")
     answer = models.TextField()
     is_correct = models.BooleanField()
 
@@ -71,7 +71,7 @@ class QuizTaken(models.Model):
     STATUS_CHOICES = ((STATUS_STARTED, "Started"), (STATUS_PAUSED, "Paused"), (STATUS_FINISHED, "Finished"))
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    quiz = models.ForeignKey("Quiz", on_delete=models.CASCADE)
+    quiz = models.ForeignKey("Quiz", on_delete=models.CASCADE, related_name="user_quizes")
 
     status = models.CharField(max_length=256, choices=STATUS_CHOICES, default=STATUS_STARTED)
     score = models.IntegerField(default=0)

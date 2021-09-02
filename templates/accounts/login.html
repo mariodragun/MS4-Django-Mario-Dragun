@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block extra_styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+        <p>Your account doesn't have access to this page. To proceed,
+        please login with an account that has access.</p>
+        {% else %}
+        <p>Please login to see this page.</p>
+        {% endif %}
+    {% endif %}
+
+    <div class="d-flex justify-content-center login">
+        <div class="card card-container">
+            <form method="post" action="{% url 'accounts:login' %}" class="form-signin">
+                {% csrf_token %}
+                <div class="item">
+                    <span>{{ form.username.label_tag }}</span>
+                    {{ form.username }}
+                </div>
+
+                <div class="item">
+                    <span>{{ form.password.label_tag }}</span>
+                    {{ form.password }}
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                {% comment %} <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" value="login">Sign in</button> {% endcomment %}
+                <input type="hidden" name="next" value="{{ next }}">
+               
+            </form><!-- /form -->
+        </div>
+    </div>
+
+    <form method="post" action="{% url 'accounts:login' %}">
+       
+    </form>
+
+{% endblock %}

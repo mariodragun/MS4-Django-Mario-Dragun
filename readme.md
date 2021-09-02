@@ -20,17 +20,17 @@ The main goal of this project is to create online quiz using the Django framewor
 
 ### Wireframes:
 
-- [Main page desktop]()
+- [Main page desktop](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/wireframes/desktop_main_wireframe.JPG)
 
-- [Main page tab]()
+- [Main page tab](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/wireframes/tab_main_wireframe.JPG)
 
-- [Main page phone]()
+- [Main page phone](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/wireframes/phone_main_wireframe.JPG)
 
-- [Admin page desktop]()
+- [Admin page desktop](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/wireframes/admin_desktop_wireframe.JPG)
 
-- [Admin page tab]()
+- [Admin page tab](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/wireframes/Tab_admin_wireframe.JPG)
 
-- [Admin page phone]()
+- [Admin page phone](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/wireframes/phone_admin_wireframe.JPG)
 
 ### Site Owner Goals:
 

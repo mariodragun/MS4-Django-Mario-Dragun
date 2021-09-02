@@ -192,14 +192,20 @@ def quiz_question(request, id):
     question = get_object_or_404(Question, pk=id)
 
     quiz_id = request.POST["quiz"]
-    choice_id = request.POST["choice"]
+    quiz = Quiz.objects.get(pk=quiz_id)
+
+    choice_id = request.POST.get("choice")
     user = request.user
+
+    # if there is no choice redirect back to quiz start
+    if not choice_id:
+        return HttpResponseRedirect(reverse("quiz:quiz_start", args=(quiz.id,)))
 
     quiz = None
 
     try:
         selected_answer_choice = question.answers.get(id=choice_id)
-        quiz = Quiz.objects.get(pk=quiz_id)
+
     except Exception as e:
         pass
 

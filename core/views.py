@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from .models import Answer, Quiz, Question, SelectedAnswer
 from django.shortcuts import get_object_or_404, render
 from django.template import loader
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -15,6 +16,7 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 
+@login_required(login_url="/accounts/login/")
 def quiz(request, id):
     # load correct template
     template = loader.get_template("core/quiz.html")

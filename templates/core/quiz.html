@@ -8,7 +8,7 @@
 {% block content %}
     {% if quiz_object %}
 
-        {% if not quiz_object.started %}
+        {% if not started %}
             {% include "core/quiz/quiz_description.html" %}
         {% else %}
             <ul class="list-group">

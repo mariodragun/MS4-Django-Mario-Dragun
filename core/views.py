@@ -1,8 +1,9 @@
 from django.http import HttpResponse
-from .models import Answer, Quiz, Question, SelectedAnswer
+from .models import Answer, Quiz, Question, SelectedAnswer, QuizTaken
 from django.shortcuts import get_object_or_404, render
 from django.template import loader
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 
 
 def index(request):
@@ -28,8 +29,35 @@ def quiz(request, id):
     try:
         # try and find quiz object based on the provided `id`
         quiz_object = Quiz.objects.get(id=id, is_active=True)
+
+        quiz_already_started = False
+
+        # check if quiz is already started - if it is then set up already_started bool
+        quiz_taken = QuizTaken.objects.filter(user=request.user, quiz=quiz_object)
+        if quiz_taken:
+            quiz_already_started = True
+
+        if request.GET.get("option") and request.GET["option"] == "start":
+            # start quiz for this user - create a QuizTaken object or update
+            quiz_taken, created = QuizTaken.objects.update_or_create(
+                user=request.user,
+                quiz=quiz_object,
+                defaults={
+                    "status": QuizTaken.STATUS_STARTED,
+                },
+            )
+            # check if object is created, if created set started_at at now()
+            if created:
+                quiz_taken.started_at = timezone.now()
+                quiz_taken.save()
+            quiz_already_started = True
+
         # define context to be sent to template
-        context = {"quiz_object": quiz_object, "questions": quiz_object.questions.all(), "started": False}
+        context = {
+            "quiz_object": quiz_object,
+            "questions": quiz_object.questions.all(),
+            "started": quiz_already_started,
+        }
     except Exception:
         # display exception error
         error_template = loader.get_template("common/errors/http_404.html")

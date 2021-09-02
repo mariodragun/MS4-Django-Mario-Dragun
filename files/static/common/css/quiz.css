@@ -1,0 +1,17 @@
+#nav-quiz {
+    color: rgb(108, 117, 125) !important;
+}
+
+#quiz-description .card {
+    min-width: 40%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#quiz-description .card .button-wrapper {
+    padding: 10px;
+}
+
+#quiz-description .card .button-wrapper a {
+    float: right;
+}

@@ -6,7 +6,7 @@
             <p class="card-text">{{quiz_object.description}}</p>
         </div>
         <div class="d-grid d-md-block button-wrapper" style="padding: 10px;">
-            <button type="button" class="btn btn-primary">Start Quiz</button>
+            <a class="btn btn-primary" href="{% url 'quiz:quiz_start' quiz_object.id %}?option=start" role="button">Start Quiz</a>
         </div>
         
     </div>

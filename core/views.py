@@ -22,41 +22,51 @@ def quiz(request, id):
     # load correct template
     template = loader.get_template("core/quiz.html")
 
-    """Check if quiz has been started (QuizTaken)
-    - if not se
-    """
+    def _check_if_quiz_is_started(quiz):
+        """Function to check if user has already started this particular quiz."""
+
+        quiz_already_started = False
+        # check if quiz is already started - if it is then set up already_started bool
+        quiz_taken = QuizTaken.objects.filter(user=request.user, quiz=quiz)
+        if quiz_taken:
+            quiz_already_started = True
+
+        return quiz_already_started
+
+    def _start_quiz(quiz):
+        """Function to start a new quiz for the user, it will create an entry in the QuizTaken model."""
+
+        # start quiz for this user - create a QuizTaken object or update
+        quiz_taken, created = QuizTaken.objects.update_or_create(
+            user=request.user,
+            quiz=quiz,
+            defaults={
+                "status": QuizTaken.STATUS_STARTED,
+            },
+        )
+        # check if object is created, if created set started_at at now()
+        if created:
+            quiz_taken.started_at = timezone.now()
+            quiz_taken.save()
+
+        return True
 
     try:
         # try and find quiz object based on the provided `id`
         quiz_object = Quiz.objects.get(id=id, is_active=True)
 
-        quiz_already_started = False
-
-        # check if quiz is already started - if it is then set up already_started bool
-        quiz_taken = QuizTaken.objects.filter(user=request.user, quiz=quiz_object)
-        if quiz_taken:
-            quiz_already_started = True
+        # check if quiz started
+        quiz_started = _check_if_quiz_is_started(quiz=quiz_object)
 
         if request.GET.get("option") and request.GET["option"] == "start":
-            # start quiz for this user - create a QuizTaken object or update
-            quiz_taken, created = QuizTaken.objects.update_or_create(
-                user=request.user,
-                quiz=quiz_object,
-                defaults={
-                    "status": QuizTaken.STATUS_STARTED,
-                },
-            )
-            # check if object is created, if created set started_at at now()
-            if created:
-                quiz_taken.started_at = timezone.now()
-                quiz_taken.save()
-            quiz_already_started = True
+            # start new quiz
+            quiz_started = _start_quiz(quiz=quiz_object)
 
         # define context to be sent to template
         context = {
             "quiz_object": quiz_object,
             "questions": quiz_object.questions.all(),
-            "started": quiz_already_started,
+            "started": quiz_started,
         }
     except Exception:
         # display exception error

@@ -11,7 +11,7 @@ def index(request):
     """Basic index view."""
 
     # load template
-    template = loader.get_template("core/base.html")
+    template = loader.get_template("core/index.html")
     context = {}
 
     # return response along with rendered template

@@ -21,6 +21,9 @@
     <body>
         {% include 'common/site_header.html'%}
 
+        {% block content_outside %}
+        {% endblock %}
+
         <div class="container">
             {% block content %}
             {% endblock %}

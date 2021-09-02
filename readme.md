@@ -160,7 +160,7 @@ The main goal of this project is to create online quiz using the Django framewor
 #### Project setup:
 
 
-- Create a new repository on [Git Hub](https://github.com) using code institute`s template
+- Create a new repository on Git Hub using code institute`s template
 
 - Change repository visibility
 
@@ -179,13 +179,13 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - Navigate to [Heroku](https://id.heroku.com/login)
 
-- Register on [Heroku](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_button_new.JPG)
+- Register on Heroku
 
 - Press Button [New](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_button_new.JPG)
 
 - Select Create a New App, enter the [app name and select region](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_create_new_app.JPG)
 
-- Press Resource / add-ons and search for [Heruku Postgres database](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heroku_postgres_database.JPG)
+- Press Resource / add-ons and search for [Heruku Postgres database](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_postgres_database.JPG)
 
 
 

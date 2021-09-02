@@ -201,11 +201,8 @@ def quiz_question(request, id):
     if not choice_id:
         return HttpResponseRedirect(reverse("quiz:quiz_start", args=(quiz.id,)))
 
-    quiz = None
-
     try:
         selected_answer_choice = question.answers.get(id=choice_id)
-
     except Exception:
         pass
 

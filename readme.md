@@ -24,10 +24,22 @@ The main goal of this project is to create online quiz using the Django framewor
 - People who want to expand their general knowledge
 
 
+### Structure:
+
+#### Project has the following sections:
+
+
+- Home page contains image and navigation bar with access to login, register, admin
+
+- Login page contains username field, pasword filed and login button
+
+- Register page contains fields: first name, last name, username, email, password, confirm password and register button
+
+- Admin page contains sections: home, user, questions, quiz taken
 
 
 
-### Wireframes:
+#### Wireframes:
 
 
 - [Main page desktop](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/wireframes/desktop_main_wireframe.JPG)
@@ -43,7 +55,15 @@ The main goal of this project is to create online quiz using the Django framewor
 - [Admin page phone](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/wireframes/phone_admin_wireframe.JPG)
 
 
+#### Page design:
 
+- [Chrome view]()
+
+- [Firefox view]()
+
+- [Phone view]()
+
+- [Tab view]()
 
 
 
@@ -188,11 +208,11 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - Select the [Deploy](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_deployment.JPG) tab and click Enable Automation Deployment 
 
-- Install Heruku CLI on PC
+- Install Heroku CLI on PC
 
-- Run PowerShel commands to create super user on Django app: heroku run bash --app mariodragun/MS4-Django-Mario-Dragun, python manage.py migrate, python manage.py createsuperuser
+- Run PowerShell commands to create super user on Django app: heroku run bash --app mariodragun/MS4-Django-Mario-Dragun, python manage.py migrate, python manage.py createsuperuser
 
-- Register superuser [name and password](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_superuser.JPG)
+- Register super user [name and password](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_superuser.JPG)
 
 - Create [quiz](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/quiz_creation.JPG) on Django App
 

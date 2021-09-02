@@ -20,6 +20,18 @@ The main goal of this project is to create online quiz using the Django framewor
 
 ### Wireframes:
 
+- [Main page desktop]()
+
+- [Main page tab]()
+
+- [Main page phone]()
+
+- [Admin page desktop]()
+
+- [Admin page tab]()
+
+- [Admin page phone]()
+
 ### Site Owner Goals:
 
 - Provide the users interesting quizzes

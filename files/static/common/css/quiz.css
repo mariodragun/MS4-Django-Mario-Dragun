@@ -45,4 +45,20 @@
     font-size: 100px;
     line-height: 200px;
     margin-left:-15px;
-  }
+}
+
+.quiz-list-item {
+    padding: 40px 20px;
+    box-shadow: 0 3px 3px #DEDEDE;
+    margin: 0 auto;
+    max-width: 400px;
+    width: 50%;
+}
+
+.quiz-list-item .quiz-start-btn {
+    float: right;
+}
+
+.error-output {
+    margin-top: 40px;
+}

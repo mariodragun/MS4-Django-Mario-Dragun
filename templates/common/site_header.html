@@ -4,7 +4,7 @@
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <li><a href="{% url 'quiz:index' %}" class="nav-link px-2 text-white" id="nav-index">Home</a></li>
             <li><a href="#" class="nav-link px-2 text-white" id="nav-dashboard">Dashboard</a></li>
-            <li><a href="{% url 'quiz:quiz_start' 1 %}" class="nav-link px-2 text-white" id="nav-quiz">Quiz</a></li>
+            <li><a href="{% url 'quiz:quiz_list_index' %}" class="nav-link px-2 text-white" id="nav-quiz">Quiz</a></li>
             <li><a href="#" class="nav-link px-2 text-white" id="nav-settings">Settings</a></li>
             <li><a href="#" class="nav-link px-2 text-white">About</a></li>
             {% if user.is_authenticated and user.is_staff %}

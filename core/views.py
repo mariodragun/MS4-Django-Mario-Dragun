@@ -18,7 +18,27 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 
-@login_required(login_url="/accounts/login/")
+@login_required()
+def quiz_list_index(request):
+    """View for quiz index view - it should present a list of quizes."""
+
+    # get all quiz objects
+    quizes = Quiz.objects.all()
+
+    # load templates
+    quiz_index_template = loader.get_template("core/quiz/quiz_list.html")
+
+    # set basic context
+    context = {"quizes": quizes}
+
+    # if there are no quizes - return empty page with appropriate messages
+    if not quizes:
+        context["error_message"] = "There are no quizes at this time. Please wait until we approve them."
+
+    return HttpResponse(quiz_index_template.render(context, request))
+
+
+@login_required()
 def quiz(request, id):
     # load correct template
     template = loader.get_template("core/quiz.html")
@@ -143,6 +163,7 @@ def quiz(request, id):
     return HttpResponse(template.render(context, request))
 
 
+@login_required()
 def quiz_question(request, id):
     """View to store answer."""
 

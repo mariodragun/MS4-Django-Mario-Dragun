@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% load static %}
+{% block extra_styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'common/css/quiz.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% if quizes %}
+        <div class="d-flex justify-content-center" id="quiz-completed">
+            {% for quiz in quizes %}
+                <div class="card quiz-list-item">
+                    <div class="card-body">
+                        <h5 class="card-title">{{quiz.title}}</h5>
+                        <p class="card-text">{{quiz.description}}</p>
+                    </div>
+                    <div class="d-grid d-md-block button-wrapper" style="padding: 10px;">
+                        <a class="btn btn-primary quiz-start-btn" href="{% url 'quiz:quiz_start' quiz.id %}?option=start" role="button">Start Quiz</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="d-flex justify-content-center error-output">
+            <div class="alert alert-secondary" role="alert">
+                {{ error_message }}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

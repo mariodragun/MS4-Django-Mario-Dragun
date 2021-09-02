@@ -43,11 +43,11 @@ The main goal of this project is to create online quiz using the Django framewor
 
 
 
-- easy access change database questions
+- Easy access change database questions
 
-- to add new questions
+- To add new questions
 
-- to delete users
+- To delete users
 
 
 
@@ -55,11 +55,11 @@ The main goal of this project is to create online quiz using the Django framewor
 
 
 
-- easy to register
+- Easy to register
 
-- easy to login
+- Easy to login
 
-- to play general knowledge quiz
+- To play general knowledge quiz
 
 
 
@@ -69,13 +69,13 @@ The main goal of this project is to create online quiz using the Django framewor
 #### Project has the following sections:
 
 
-- Home page contains image and navigation bar with access to login, register, admin
+- Home page contains image and navigation bar with access to login, register, admin, 
 
 - Login page contains username field, pasword filed and login button
 
 - Register page contains fields: first name, last name, username, email, password, confirm password and register button
 
-- Admin page contains sections: home, user, questions, quiz taken
+- Admin page contains options to add quizzes, questions, users, groups
 
 
 
@@ -110,7 +110,7 @@ The main goal of this project is to create online quiz using the Django framewor
 ####
 
 
-- Main image was download from [Wallpaper cave](https://wallpapercave.com/question-mark-wallpapers)
+- Main image was download from [Wallpaper Cave](https://wallpapercave.com/question-mark-wallpapers)
 
 
 

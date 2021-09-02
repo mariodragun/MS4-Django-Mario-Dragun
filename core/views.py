@@ -86,6 +86,22 @@ def quiz(request, id):
 
         return questions_list
 
+    def _is_quiz_completed(questions_list):
+        """Function to check if all the questions had been answered in the quiz."""
+
+        answered_qustions = 0
+        correct_answers = 0
+        # iterate through all of the questions
+        for item in questions_list:
+            if item.get("selected_answer_for_this_question"):
+                answered_qustions += 1
+            if item.get("answer_is_correct"):
+                correct_answers += 1
+        # compare counters
+        if len(questions_list) == answered_qustions:
+            return True, correct_answers
+        return False, correct_answers
+
     try:
         # try and find quiz object based on the provided `id`
         quiz_object = Quiz.objects.get(id=id, is_active=True)
@@ -97,10 +113,23 @@ def quiz(request, id):
             # start new quiz
             quiz_started = _start_quiz(quiz=quiz_object)
 
+        questions_list = _get_questions_list(quiz=quiz_object)
+        quiz_completed, answered_correctly_count = _is_quiz_completed(questions_list=questions_list)
+
+        # if quiz is completed render completed template
+        if quiz_completed:
+            finish_template = loader.get_template("core/quiz/quiz_completed.html")
+            context = {
+                "quiz": quiz_object,
+                "answered_correctly_count": answered_correctly_count,
+                "questions_count": len(questions_list),
+            }
+            return HttpResponse(finish_template.render(context, request))
+
         # define context to be sent to template
         context = {
             "quiz_object": quiz_object,
-            "questions_list": _get_questions_list(quiz=quiz_object),
+            "questions_list": questions_list,
             "started": quiz_started,
             "quiz_completed": False,
         }

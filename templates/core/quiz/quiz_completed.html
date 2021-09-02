@@ -1,0 +1,20 @@
+{% extends 'core/base.html'%}
+
+{% load static %}
+{% block extra_styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'common/css/quiz.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-center" id="quiz-completed">
+        <div class="card" id="quiz-start">
+            <div class="checkmark-wrapper" style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+                <i class="checkmark">✓</i>
+            </div>
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">Your score: {{ answered_correctly_count }}/{{ questions_count}}</h6>
+                <p class="card-text">Congratulations, you finished quiz <b>{{quiz.title}}</b>.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

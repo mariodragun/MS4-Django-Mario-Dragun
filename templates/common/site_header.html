@@ -20,7 +20,7 @@
                 <a class="btn btn-outline-light me-2" href="{% url 'accounts:logout' %}" role="button">Logout</a>
             {% else %}
                 <a class="btn btn-outline-light me-2" href="{% url 'accounts:login' %}" role="button">Login</a>
-                <button type="button" class="btn btn-warning">Register</button>
+                <a class="btn btn-warning" href="{% url 'accounts:register' %}" role="button">Register</a>
             {% endif %}
         </div>
     </div>

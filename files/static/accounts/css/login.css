@@ -10,11 +10,15 @@
     max-width: 400px;
 }
 
-.login .card span {
+.login .card span, .login .card label {
     text-align: left;
     line-height: 1.5;
     display: block;
     margin-bottom: 2px;
+}
+
+.login .card .form-group, .login .card .item {
+    padding: 10px 0;
 }
 
 .login .card input {

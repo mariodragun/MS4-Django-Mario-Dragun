@@ -18,6 +18,7 @@ The main goal of this project is to create online quiz using the Django framewor
 - People who want to expand their  general knowledge
 
 
+### Wireframes:
 
 ### Site Owner Goals:
 

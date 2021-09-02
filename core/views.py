@@ -19,11 +19,15 @@ def quiz(request, id):
     # load correct template
     template = loader.get_template("core/quiz.html")
 
+    """Check if quiz has been started (QuizTaken)
+    - if not se
+    """
+
     try:
         # try and find quiz object based on the provided `id`
         quiz_object = Quiz.objects.get(id=id, is_active=True)
         # define context to be sent to template
-        context = {"quiz_object": quiz_object, "questions": quiz_object.questions.all()}
+        context = {"quiz_object": quiz_object, "questions": quiz_object.questions.all(), "started": False}
     except Exception:
         # display exception error
         error_template = loader.get_template("common/errors/http_404.html")

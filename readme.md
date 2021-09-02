@@ -15,13 +15,53 @@ The main goal of this project is to create online quiz using the Django framewor
 
 
 
-
 ### Target Audience:
 
 
 - General population who enjoy quizzes.
 
 - People who want to expand their general knowledge
+
+
+
+### Site Owner Goals:
+
+
+
+- Provide the users interesting quizzes
+
+- Make a profit from donations 
+  
+
+  
+
+### UX stories:
+
+
+
+#### As admin I want to:
+
+
+
+- easy access change database questions
+
+- to add new questions
+
+- to delete users
+
+
+
+#### As user I want to:
+
+
+
+- easy to register
+
+- easy to login
+
+- to play general knowledge quiz
+
+
 
 
 ### Structure:
@@ -57,57 +97,13 @@ The main goal of this project is to create online quiz using the Django framewor
 
 #### Page design:
 
-- [Chrome view]()
+- [Chrome view](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/chrome_view.JPG)
 
-- [Firefox view]()
+- [Firefox view](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/firefox_view.JPG)
 
-- [Phone view]()
+- [Phone view](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/phone_view.JPG)
 
-- [Tab view]()
-
-
-
-### Site Owner Goals:
-
-
-
-- Provide the users interesting quizzes
-
-- Make a profit from donations 
-
-
-
-
-
-
-
-
-### UX stories:
-
-
-
-#### As admin I want to:
-
-
-
-- easy access change database questions
-
-- to add new questions
-
-- to delete users
-
-
-
-#### As user I want to:
-
-
-
-- easy to register
-
-- easy to login
-
-- to play general knowledge quiz
-
+- [Tab view](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/ipad_view.JPG)
 
 
 
@@ -122,7 +118,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - Bootstrap
 
-- Django
+- Django [requirements.txt](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/requirements.txt)
 
 
 
@@ -249,17 +245,17 @@ The main goal of this project is to create online quiz using the Django framewor
 
 
 
-- that every link is opening right template
+- That every link is opening right template
 
-- that user registration is functional
+- That user registration is functional
 
-- that login is functional
+- That login is functional
 
-- that quiz is functional
+- That quiz is functional
 
-- that admin can delete users
+- That admin can delete users
 
-- that admin can add new or to remove old questions
+- That admin can add new or to remove old questions
 
 
 

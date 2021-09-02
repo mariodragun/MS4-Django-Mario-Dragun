@@ -21,7 +21,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - General population who enjoy quizzes.
 
-- People who want to expand their  general knowledge
+- People who want to expand their general knowledge
 
 
 
@@ -53,7 +53,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - Provide the users interesting quizzes
 
-- Make a profit selling subscriptions for full membership 
+- Make a profit from donations 
 
 
 
@@ -145,7 +145,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - Create readme.md file and make initial commit
 
-- Make regular commits after project change with quality descripton using commands: git add -A and git commit -m "message"
+- Make regular commits after project change with quality description using commands: git add -A and git commit -m "message"
 
 - Use git push command in CMD for code commits
 
@@ -180,8 +180,7 @@ The main goal of this project is to create online quiz using the Django framewor
 #### Set environment variables
 
 
-- Click the Settings tab and then click the [Reveal Config Vars button](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_config_vars.JPG) and add the following
-
+- Click the Settings tab and then click the [Reveal Config Vars button](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_config_vars.JPG) 
 
 
 #### Deployment`s final steps
@@ -191,13 +190,13 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - Install Heruku CLI on PC
 
-- Run powershelf commands to create super user on Django app: heroku run bash --app mariodragun/MS4-Django-Mario-Dragun, python manage.py migrate, python manage.py createsuperuser
+- Run PowerShel commands to create super user on Django app: heroku run bash --app mariodragun/MS4-Django-Mario-Dragun, python manage.py migrate, python manage.py createsuperuser
 
 - Register superuser [name and password](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_superuser.JPG)
 
-- Create [quizz](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/quiz_creation.JPG) on Django App
+- Create [quiz](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/quiz_creation.JPG) on Django App
 
-- Create quizz [questions](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/quiz_questions.JPG)
+- Create quiz [questions](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/quiz_questions.JPG)
 
 
 
@@ -255,4 +254,4 @@ The main goal of this project is to create online quiz using the Django framewor
 ### Conclusion:
 
 
-- This project was build only for educational purpose and won`t be in commercial use.
+- This project was built only for educational purpose and won`t be in commercial use.

@@ -7,13 +7,19 @@
             <li><a href="{% url 'quiz:quiz_start' 1 %}" class="nav-link px-2 text-white" id="nav-quiz">Quiz</a></li>
             <li><a href="#" class="nav-link px-2 text-white" id="nav-settings">Settings</a></li>
             <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">Admin</a></li>
+            {% if user.is_authenticated and user.is_staff %}
+                <li><a href="/admin" class="nav-link px-2 text-white">Admin</a></li>
+            {% endif %}
         </ul>
 
 
         <div class="text-end">
-            <a class="btn btn-outline-light me-2" href="{% url 'accounts:login' %}" role="button">Login</a>
-            <button type="button" class="btn btn-warning">Register</button>
+            {% if user.is_authenticated %}
+                <a class="btn btn-outline-light me-2" href="{% url 'accounts:logout' %}" role="button">Logout</a>
+            {% else %}
+                <a class="btn btn-outline-light me-2" href="{% url 'accounts:login' %}" role="button">Login</a>
+                <button type="button" class="btn btn-warning">Register</button>
+            {% endif %}
         </div>
     </div>
 </header>

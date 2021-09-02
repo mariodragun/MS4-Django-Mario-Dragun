@@ -6,6 +6,8 @@
     padding: 40px;
     box-shadow: 0 3px 3px #DEDEDE;
     padding: 40px 20px 10px 20px;
+    width: 50%;
+    max-width: 400px;
 }
 
 .login .card span {

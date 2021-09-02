@@ -15,6 +15,7 @@
                 <h6 class="card-subtitle mb-2 text-muted">Your score: {{ answered_correctly_count }}/{{ questions_count}}</h6>
                 <p class="card-text">Congratulations, you finished quiz <b>{{quiz.title}}</b>.</p>
             </div>
+            <a class="btn btn-primary quiz-start-btn" href="{% url 'quiz:quiz_start' quiz.id %}?option=restart" role="button">Restart Quiz</a
         </div>
     </div>
 {% endblock %}

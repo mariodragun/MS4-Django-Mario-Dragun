@@ -10,7 +10,6 @@ def user_register(request):
     error_message = None
 
     if request.method == "POST":
-        print(request.POST)
         username = request.POST["req-username-input"]
         password = request.POST["req-password-input"]
         repeat_password = request.POST["req-re-password-input"]

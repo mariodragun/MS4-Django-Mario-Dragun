@@ -43,12 +43,19 @@ def quiz(request, id):
     # load correct template
     template = loader.get_template("core/quiz.html")
 
+    def _quiz_taken(quiz):
+        """Fuction to return taken quiz for this user"""
+
+        quiz_taken = QuizTaken.objects.filter(user=request.user, quiz=quiz)
+        return quiz_taken
+
     def _check_if_quiz_is_started(quiz):
         """Function to check if user has already started this particular quiz."""
 
         quiz_already_started = False
         # check if quiz is already started - if it is then set up already_started bool
-        quiz_taken = QuizTaken.objects.filter(user=request.user, quiz=quiz)
+        quiz_taken = _quiz_taken(quiz=quiz)
+
         if quiz_taken:
             quiz_already_started = True
 
@@ -78,6 +85,18 @@ def quiz(request, id):
         selected_answer = SelectedAnswer.objects.filter(user=request.user, quiz=quiz, question=question).first()
 
         return selected_answer
+
+    def _reset_quiz(quiz):
+        """Function to restart quiz."""
+
+        quiz_taken = _quiz_taken(quiz=quiz)
+        questions = Question.objects.filter(quiz=quiz)
+        for question in questions:
+            selected_answer = SelectedAnswer.objects.filter(user=request.user, quiz=quiz, question=question)
+            selected_answer.delete()
+        quiz_taken.delete()
+
+        return _start_quiz(quiz=quiz)
 
     def _get_questions_list(quiz):
         """Function to get all the questions/answers and few additional variables."""
@@ -132,6 +151,9 @@ def quiz(request, id):
         if request.GET.get("option") and request.GET["option"] == "start":
             # start new quiz
             quiz_started = _start_quiz(quiz=quiz_object)
+        elif request.GET.get("option") and request.GET["option"] == "restart":
+            # delete old quiz for the user and start a new one
+            quiz_started = _reset_quiz(quiz=quiz_object)
 
         questions_list = _get_questions_list(quiz=quiz_object)
         quiz_completed, answered_correctly_count = _is_quiz_completed(questions_list=questions_list)

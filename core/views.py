@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Answer, Quiz, Question, SelectedAnswer, QuizTaken
-from django.shortcuts import get_object_or_404, render
+from .models import Quiz, Question, SelectedAnswer, QuizTaken
+from django.shortcuts import get_object_or_404
 from django.template import loader
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
@@ -206,7 +206,7 @@ def quiz_question(request, id):
     try:
         selected_answer_choice = question.answers.get(id=choice_id)
 
-    except Exception as e:
+    except Exception:
         pass
 
     if selected_answer_choice and quiz and user:

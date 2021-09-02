@@ -1,9 +1,10 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import Answer, Quiz, Question, SelectedAnswer, QuizTaken
 from django.shortcuts import get_object_or_404, render
 from django.template import loader
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
+from django.urls import reverse
 
 
 def index(request):
@@ -51,6 +52,40 @@ def quiz(request, id):
 
         return True
 
+    def _get_selected_answer(question, quiz):
+        """Function to get all the selected answers for question and quiz."""
+
+        selected_answer = SelectedAnswer.objects.filter(user=request.user, quiz=quiz, question=question).first()
+
+        return selected_answer
+
+    def _get_questions_list(quiz):
+        """Function to get all the questions/answers and few additional variables."""
+
+        questions_list = list()
+        # iterate through quiz questions
+        for question in quiz.questions.all():
+            selected_answer = _get_selected_answer(question=question, quiz=quiz)
+
+            answer_is_correct = False
+            # if there is selected answer - check if that answer is correct
+            if selected_answer:
+                correct_answer = question.answers.filter(is_correct=True).first()
+                if correct_answer and correct_answer.answer == selected_answer.content:
+                    answer_is_correct = True
+
+            # prepare all the required data
+            data = {
+                "question": question,
+                "answers": question.answers.all(),
+                "selected_answer_for_this_question": selected_answer,
+                "answer_is_correct": answer_is_correct,
+            }
+            # append data to list
+            questions_list.append(data)
+
+        return questions_list
+
     try:
         # try and find quiz object based on the provided `id`
         quiz_object = Quiz.objects.get(id=id, is_active=True)
@@ -65,8 +100,9 @@ def quiz(request, id):
         # define context to be sent to template
         context = {
             "quiz_object": quiz_object,
-            "questions": quiz_object.questions.all(),
+            "questions_list": _get_questions_list(quiz=quiz_object),
             "started": quiz_started,
+            "quiz_completed": False,
         }
     except Exception:
         # display exception error
@@ -96,6 +132,7 @@ def quiz_question(request, id):
         pass
 
     if selected_answer_choice and quiz and user:
+        # create new Selecte Answer or update existing one, if it is the Answer to the same Question
         ob, created = SelectedAnswer.objects.update_or_create(
             user=user,
             quiz=quiz,
@@ -105,6 +142,5 @@ def quiz_question(request, id):
             },
         )
 
-        return HttpResponse("Answer is stored")
-
-    return HttpResponse("Something happened")
+    # return redirect response to the quiz
+    return HttpResponseRedirect(reverse("quiz:quiz_start", args=(quiz.id,)))

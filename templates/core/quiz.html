@@ -11,23 +11,56 @@
         {% if not started %}
             {% include "core/quiz/quiz_description.html" %}
         {% else %}
-            <ul class="list-group">
-                {% for question in questions %}
-                    <li class="list-group-item">
-                        <form action="{% url 'quiz:quiz_question' question.id %}" method="post">
-                        {% csrf_token %}
-                        <fieldset>
-                            <legend><h1>{{ question.title }}</h1></legend>
-                            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-                            {% for answer in question.answers.all %}
-                                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ answer.id }}">
-                                <label for="choice{{ forloop.counter }}">{{ answer.answer }}</label><br>
-                                <input type="hidden" name="quiz" value="{{ quiz_object.id }}" />
-                            {% endfor %}
-                        </fieldset>
-                        <input type="submit" value="Answer">
-                        </form>
-                    </li>
+            <ul class="list-group" id="question-list">
+                {% for question in questions_list %}
+                    {% comment %} disabled entry {% endcomment %}
+                    {% if question.selected_answer_for_this_question %}
+                        <li class="list-group-item">
+                            <div {% if question.answer_is_correct %} class="row correct" {% else %} class="row" {% endif %}>
+                                <form action="{% url 'quiz:quiz_question' question.question.id %}" method="post">
+                                {% csrf_token %}
+                                <fieldset>
+                                    <legend><h3>Question: {{ question.question.title }}</h3></legend>
+                                    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                                    {% for answer in question.answers %}
+                                        {{ selected_answer_for_this_question.content }}
+                                        {% if answer.answer in question.selected_answer_for_this_question.content %}
+                                            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ answer.id }}" checked disabled>
+                                            <label for="choice{{ forloop.counter }}">{{ answer.answer }}</label><br>
+                                            <input type="hidden" name="quiz" value="{{ quiz_object.id }}"/>
+                                        {% else %}
+                                            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ answer.id }}" disabled>
+                                            <label for="choice{{ forloop.counter }}">{{ answer.answer }}</label><br>
+                                            <input type="hidden" name="quiz" value="{{ quiz_object.id }}" />
+                                        {% endif %}
+                                    {% endfor %}
+                                </fieldset>
+
+                                <input type="submit" class="btn btn-secondary" disabled value="Answer">
+                                </form>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li class="list-group-item">
+                            <div class="row">
+                                <form action="{% url 'quiz:quiz_question' question.question.id %}" method="post">
+                                {% csrf_token %}
+                                <fieldset>
+                                    <legend><h3>Question: {{ question.question.title }}</h3></legend>
+                                    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                                    {% for answer in question.answers %}
+                                        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ answer.id }}">
+                                        <label for="choice{{ forloop.counter }}">{{ answer.answer }}</label><br>
+                                        <input type="hidden" name="quiz" value="{{ quiz_object.id }}" />
+                                    {% endfor %}
+                                </fieldset>
+
+                                <input type="submit" class="btn btn-secondary" value="Answer">
+                                </form>
+                            </div>
+                        </li>
+                    {% endif %}
+
                 {% endfor %}
             </ul>
         {% endif %}

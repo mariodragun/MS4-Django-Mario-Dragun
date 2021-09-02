@@ -15,3 +15,15 @@
 #quiz-description .card .button-wrapper a {
     float: right;
 }
+
+#question-list{
+    margin: 20px 0;
+}
+
+#question-list li legend {
+    text-align: center;
+}
+
+#question-list li fieldset {
+    padding: 20px 40px;
+}

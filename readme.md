@@ -4,21 +4,31 @@
 
 
 
+
+
 ### Summary:
+
 
 This project is my final project for the Code Institute's Full stack development program.
 The main goal of this project is to create online quiz using the Django framework.
 
 
 
+
+
 ### Target Audience:
+
 
 - General population who enjoy quizzes.
 
 - People who want to expand their  general knowledge
 
 
+
+
+
 ### Wireframes:
+
 
 - [Main page desktop](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/wireframes/desktop_main_wireframe.JPG)
 
@@ -32,11 +42,53 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - [Admin page phone](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/wireframes/phone_admin_wireframe.JPG)
 
+
+
+
+
+
 ### Site Owner Goals:
+
+
 
 - Provide the users interesting quizzes
 
 - Make a profit selling subscriptions for full membership 
+
+
+
+
+
+
+
+
+### UX stories:
+
+
+
+#### As admin I want to:
+
+
+
+- easy access change database questions
+
+- to add new questions
+
+- to delete users
+
+
+
+#### As user I want to:
+
+
+
+- easy to register
+
+- easy to login
+
+- to play general knowledge quiz
+
+
 
 
 
@@ -54,28 +106,36 @@ The main goal of this project is to create online quiz using the Django framewor
 
 
 
+
+
 ### Tools used:
+
+
 
 - Visual code studio
 
 - Git pod
 
-- [Github](https://github.com/) used for repository hosting service
+- [Github](https://github.com/) for repository hosting service
 
-- [Heroku](https://id.heroku.com/login) used to deploy web application
+- [Heroku](https://id.heroku.com/login) to deploy web application
 
-- Heroku Postgres used for database
+- Heroku Postgres for database
 
 - [PEP8 online](http://pep8online.com/) for validation of code
 
-- Moquaps used to make wireframes
+- Mockplus for wireframes
+
+
 
 
 
 ### Deployment:
 
 
+
 #### Project setup:
+
 
 - Create a new repository on [Git Hub](https://github.com) using code institute`s template
 
@@ -93,6 +153,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 #### Deployment to Heroku:
 
+
 - Navigate to [Heroku](https://id.heroku.com/login)
 
 - Register on [Heroku](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_button_new.JPG)
@@ -104,7 +165,9 @@ The main goal of this project is to create online quiz using the Django framewor
 - Press Resource / add-ons and search for [Heruku Postgres database](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heroku_postgres_database.JPG)
 
 
+
 #### Configuration of connection Github Repository - Heruku
+
 
 - Click the Deploy tab and select Connect to GitHub
 
@@ -113,12 +176,16 @@ The main goal of this project is to create online quiz using the Django framewor
 - When repository has been found, press the connect button
 
 
+
 #### Set environment variables
+
 
 - Click the Settings tab and then click the [Reveal Config Vars button](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_config_vars.JPG) and add the following
 
 
+
 #### Deployment`s final steps
+
 
 - Select the [Deploy](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_deployment.JPG) tab and click Enable Automation Deployment 
 
@@ -131,3 +198,61 @@ The main goal of this project is to create online quiz using the Django framewor
 - Create [quizz](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/quiz_creation.JPG) on Django App
 
 - Create quizz [questions](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/quiz_questions.JPG)
+
+
+
+
+### Testing:
+
+
+
+#### Application was tested on browsers: 
+
+
+- Chrome
+
+- Firefox
+
+
+
+
+#### Mobile responsive functions:
+
+
+
+- phone
+
+- tab
+
+
+
+#### Functionality tested:
+
+
+
+- that every link is opening right template
+
+- that user registration is functional
+
+- that login is functional
+
+- that quiz is functional
+
+- that admin can delete users
+
+- that admin can add new or to remove old questions
+
+
+
+
+### Code Validation:
+
+-
+
+
+
+
+### Conclusion:
+
+
+- This project was build only for educational purpose and won`t be in commercial use.

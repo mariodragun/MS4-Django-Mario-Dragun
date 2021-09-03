@@ -267,13 +267,6 @@ The main goal of this project is to create online quiz using the Django framewor
 
 
 
-### Code Validation:
-
--
-
-
-
-
 ### Conclusion:
 
 

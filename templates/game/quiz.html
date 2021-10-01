@@ -9,9 +9,9 @@
     {% if quiz_object %}
 
         {% if not started %}
-            {% include "core/quiz/quiz_description.html" %}
+            {% include "game/quiz/quiz_description.html" %}
         {% else %}
-            {% include "core/quiz/quiz_questions_display.html" %}
+            {% include "game/quiz/quiz_questions_display.html" %}
         {% endif %}
     {% endif %}
 {% endblock %}

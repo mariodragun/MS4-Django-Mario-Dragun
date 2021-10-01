@@ -13,7 +13,7 @@ def index(request):
     """Basic index view."""
 
     # load template
-    template = loader.get_template("core/index.html")
+    template = loader.get_template("game/index.html")
     context = {}
 
     # return response along with rendered template
@@ -28,7 +28,7 @@ def quiz_list_index(request):
     quizes = Quiz.objects.all()
 
     # load templates
-    quiz_index_template = loader.get_template("core/quiz/quiz_list.html")
+    quiz_index_template = loader.get_template("game/quiz/quiz_list.html")
 
     # set basic context
     context = {"quizes": quizes}
@@ -43,7 +43,7 @@ def quiz_list_index(request):
 @login_required()
 def quiz(request, id):
     # load correct template
-    template = loader.get_template("core/quiz.html")
+    template = loader.get_template("game/quiz.html")
 
     def _quiz_taken(quiz):
         """Fuction to return taken quiz for this user"""
@@ -162,7 +162,7 @@ def quiz(request, id):
 
         # if quiz is completed render completed template
         if quiz_completed:
-            finish_template = loader.get_template("core/quiz/quiz_completed.html")
+            finish_template = loader.get_template("game/quiz/quiz_completed.html")
             context = {
                 "quiz": quiz_object,
                 "answered_correctly_count": answered_correctly_count,

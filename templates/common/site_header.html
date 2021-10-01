@@ -16,10 +16,10 @@
                 {% if user.is_authenticated and user.is_staff %}
                     <a href="/admin" class="btn btn-outline-light me-2">Admin</a>
                 {% endif %}
-                <a class="btn btn-outline-light me-2" href="{% url 'accounts:logout' %}" role="button">Logout</a>
+                <a class="btn btn-outline-light me-2" href="{% url 'authentication:logout' %}" role="button">Logout</a>
             {% else %}
-                <a class="btn btn-outline-light me-2" href="{% url 'accounts:login' %}" role="button">Login</a>
-                <a class="btn btn-warning" href="{% url 'accounts:register' %}" role="button">Register</a>
+                <a class="btn btn-outline-light me-2" href="{% url 'authentication:login' %}" role="button">Login</a>
+                <a class="btn btn-warning" href="{% url 'authentication:register' %}" role="button">Register</a>
             {% endif %}
         </div>
     </div>

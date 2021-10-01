@@ -5,7 +5,7 @@ from django.shortcuts import redirect
 
 
 def user_register(request):
-    register_template = loader.get_template("auth/register.html")
+    register_template = loader.get_template("authentication/register.html")
 
     error_message = None
 

@@ -2,7 +2,7 @@
 
 {% load static %}
 {% block extra_styles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'accounts/css/login.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'authentication/css/login.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -10,7 +10,7 @@
     <div class="d-flex justify-content-center login">
         <div class="card card-container">
             <h2>Login</h2>
-            <form method="post" action="{% url 'accounts:login' %}" class="form-signin">
+            <form method="post" action="{% url 'authentication:login' %}" class="form-signin">
                 {% csrf_token %}
                 <div class="item">
                     <span>{{ form.username.label_tag }}</span>

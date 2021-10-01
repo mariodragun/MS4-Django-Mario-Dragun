@@ -1,5 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Quiz, Question, SelectedAnswer, QuizTaken
+from .models.quiz_models import Quiz, QuizTaken
+from .models.question_models import Question
+from .models.answer_models import SelectedAnswer
 from django.shortcuts import get_object_or_404
 from django.template import loader
 from django.contrib.auth.decorators import login_required

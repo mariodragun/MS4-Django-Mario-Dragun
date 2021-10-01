@@ -1,42 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
-class Question(models.Model):
-    """Basic Question model.
-    Question has many answers but only one or more of them can be true.
-    """
-
-    def __str__(self):
-        return self.title
-
-    title = models.CharField(max_length=512)
-    description = models.TextField()
-    image = models.ImageField(blank=True, null=True)
-
-    quiz = models.ForeignKey("Quiz", on_delete=models.CASCADE, related_name="questions")
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True, db_index=True)
-
-
-class Answer(models.Model):
-    """Basic Answer model.
-    This model has only the answer text and is_correct field from which admin can define if the
-    Answer is correct or not.
-    """
-
-    def __str__(self) -> str:
-        return self.answer
-
-    question = models.ForeignKey("Question", on_delete=models.CASCADE, related_name="answers")
-    answer = models.TextField()
-    is_correct = models.BooleanField()
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True, db_index=True)
-
-
 class Quiz(models.Model):
     """Base Quiz model. Staff member or some other subscription user will be able to create a new quiz."""
 
@@ -78,24 +42,6 @@ class QuizTaken(models.Model):
 
     started_at = models.DateTimeField(blank=True, null=True)
     finished_at = models.DateTimeField(blank=True, null=True)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True, db_index=True)
-
-
-class SelectedAnswer(models.Model):
-    """Model for storing users answers based on the question and the quiz
-    itslef.
-    """
-
-    def __str__(self):
-        return self.content
-
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    quiz = models.ForeignKey("Quiz", on_delete=models.CASCADE)
-    question = models.ForeignKey("Question", on_delete=models.CASCADE)
-
-    content = models.CharField(max_length=256)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, db_index=True)

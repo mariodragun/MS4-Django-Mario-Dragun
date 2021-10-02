@@ -12,20 +12,8 @@
             <h2>Register</h2>
             <form method="post" action="{% url 'authentication:register' %}" class="form-signin">
                 {% csrf_token %}
-                {% for field in form %}
-                    <div class="item">
-                        <span>{{ field.label_tag }}</span>
-                        {{ field }}
-
-                        {% if field.errors %}
-                            <div class="error">
-                                {% for error in field.errors %}
-                                    <span class="alert alert-danger">{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    </div>
-                {% endfor %}
+                
+                {% include "authentication/components/form_fields.html" %}
 
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Register</button>
                 <input type="hidden" name="next" value="{{ next }}">

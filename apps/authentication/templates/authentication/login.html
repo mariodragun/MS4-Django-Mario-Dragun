@@ -12,20 +12,14 @@
             <h2>Login</h2>
             <form method="post" action="{% url 'authentication:login' %}" class="form-signin">
                 {% csrf_token %}
-                <div class="item">
-                    <span>{{ form.username.label_tag }}</span>
-                    {{ form.username }}
-                </div>
-
-                <div class="item">
-                    <span>{{ form.password.label_tag }}</span>
-                    {{ form.password }}
-                </div>
+                
+                {% include "authentication/components/form_fields.html" %}
 
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
                 <input type="hidden" name="next" value="{{ next }}">
+
                
-            </form><!-- /form -->
+            </form>
         </div>
     </div>
 

@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import GameIndex
-from .views.quiz_views import QuizIndex, QuizGame, QuizQuestion
+from .views.quiz_views import QuizIndex, QuizGame
+from .views.quiz_question_views import QuizQuestion
 
 urlpatterns = [
     path("", GameIndex.as_view(), name="index"),

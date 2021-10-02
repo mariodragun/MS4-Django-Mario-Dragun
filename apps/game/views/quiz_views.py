@@ -6,35 +6,24 @@ from django.shortcuts import render
 from django.utils import timezone
 
 
-class QuizGame(DetailView):
-    model = Quiz
-    template_name = "game/quiz.html"
+class GameQuiz:
+    def __init__(self, user, quiz):
+        self._user = user
+        self._quiz = quiz
 
-    def _quiz_taken(self, quiz):
+    def _get_quiz_taken(self):
         """Fuction to return taken quiz for this user"""
 
-        quiz_taken = QuizTaken.objects.filter(user=self.request.user, quiz=quiz)
+        quiz_taken = QuizTaken.objects.filter(user=self._user, quiz=self._quiz)
         return quiz_taken
 
-    def _check_if_quiz_is_started(self, quiz):
-        """Function to check if user has already started this particular quiz."""
-
-        quiz_already_started = False
-        # check if quiz is already started - if it is then set up already_started bool
-        quiz_taken = self._quiz_taken(quiz=quiz)
-
-        if quiz_taken:
-            quiz_already_started = True
-
-        return quiz_already_started
-
-    def _start_quiz(self, quiz):
+    def start(self):
         """Function to start a new quiz for the user, it will create an entry in the QuizTaken model."""
 
         # start quiz for this user - create a QuizTaken object or update
         quiz_taken, created = QuizTaken.objects.update_or_create(
-            user=self.request.user,
-            quiz=quiz,
+            user=self._user,
+            quiz=self._quiz,
             defaults={
                 "status": QuizTaken.STATUS_STARTED,
             },
@@ -46,24 +35,73 @@ class QuizGame(DetailView):
 
         return True
 
+    def restart(self):
+        """Function to restart quiz."""
+
+        quiz_taken = self._get_quiz_taken()
+        questions = Question.objects.filter(quiz=self._quiz)
+        for question in questions:
+            selected_answer = SelectedAnswer.objects.filter(user=self._user, quiz=self._quiz, question=question)
+            selected_answer.delete()
+        quiz_taken.delete()
+
+        return self._get_quiz_taken()
+
+    def status(self):
+        # TODO: add proper status - it should return back the class with its own properties
+        pass
+
+
+class QuizStatus:
+    def __init__(self, user, quiz) -> None:
+        self._user = user
+        self._quiz = quiz
+
+    def _quiz_taken(self):
+        """Fuction to return taken quiz for this user"""
+
+        quiz_taken = QuizTaken.objects.filter(user=self._user, quiz=self._quiz)
+        return quiz_taken
+
+    def is_started(self):
+        """Function to check if user has already started this particular quiz."""
+
+        quiz_already_started = False
+        # check if quiz is already started - if it is then set up already_started bool
+        quiz_taken = self._quiz_taken()
+
+        if quiz_taken:
+            quiz_already_started = True
+
+        return quiz_already_started
+
+    def is_completed(self, questions_list):
+        """Function to check if all the questions had been answered in the quiz."""
+
+        answered_qustions = 0
+        correct_answers = 0
+        # iterate through all of the questions
+        for item in questions_list:
+            if item.get("selected_answer_for_this_question"):
+                answered_qustions += 1
+            if item.get("answer_is_correct"):
+                correct_answers += 1
+        # compare counters
+        if len(questions_list) == answered_qustions:
+            return True, correct_answers
+        return False, correct_answers
+
+
+class QuizGame(DetailView):
+    model = Quiz
+    template_name = "game/quiz.html"
+
     def _get_selected_answer(self, question, quiz):
         """Function to get all the selected answers for question and quiz."""
 
         selected_answer = SelectedAnswer.objects.filter(user=self.request.user, quiz=quiz, question=question).first()
 
         return selected_answer
-
-    def _reset_quiz(self, quiz):
-        """Function to restart quiz."""
-
-        quiz_taken = self._quiz_taken(quiz=quiz)
-        questions = Question.objects.filter(quiz=quiz)
-        for question in questions:
-            selected_answer = SelectedAnswer.objects.filter(user=self.request.user, quiz=quiz, question=question)
-            selected_answer.delete()
-        quiz_taken.delete()
-
-        return self._start_quiz(quiz=quiz)
 
     def _get_questions_list(self, quiz):
         """Function to get all the questions/answers and few additional variables."""
@@ -92,41 +130,33 @@ class QuizGame(DetailView):
 
         return questions_list
 
-    def _is_quiz_completed(self, questions_list):
-        """Function to check if all the questions had been answered in the quiz."""
-
-        answered_qustions = 0
-        correct_answers = 0
-        # iterate through all of the questions
-        for item in questions_list:
-            if item.get("selected_answer_for_this_question"):
-                answered_qustions += 1
-            if item.get("answer_is_correct"):
-                correct_answers += 1
-        # compare counters
-        if len(questions_list) == answered_qustions:
-            return True, correct_answers
-        return False, correct_answers
-
     def get(self, request, pk):
+        quiz = None
         try:
             # get quiz object
             quiz = self.model.objects.get(id=pk, is_active=True)
         except Exception:
             return render(self.request, template_name="common/errors/http_404.html", context={})
 
+        # TODO: add monitor to when quiz is None, if quiz is None report some other message, dont process everything
+
+        # get quiz status
+        quiz_status = QuizStatus(user=self.request.user, quiz=quiz)
         # check if quiz is started
-        quiz_started = self._check_if_quiz_is_started(quiz=quiz)
+        quiz_started = quiz_status.is_started()
+
+        # game quiz
+        quiz_game = GameQuiz(user=self.request.user, quiz=quiz)
 
         if self.request.GET.get("option") and self.request.GET["option"] == "start":
             # start new quiz
-            quiz_started = self._start_quiz(quiz=quiz)
+            quiz_started = quiz_game.start()
         elif self.request.GET.get("option") and self.request.GET["option"] == "restart":
             # delete old quiz for the user and start a new one
-            quiz_started = self._reset_quiz(quiz=quiz)
+            quiz_started = quiz_game.restart()
 
         questions_list = self._get_questions_list(quiz=quiz)
-        quiz_completed, answered_correctly_count = self._is_quiz_completed(questions_list=questions_list)
+        quiz_completed, answered_correctly_count = quiz_status.is_completed(questions_list=questions_list)
 
         # if quiz is completed render completed template
         if quiz_completed:

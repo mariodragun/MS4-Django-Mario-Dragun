@@ -1,23 +1,9 @@
-from django.urls.base import reverse
-from django.views.generic import ListView, TemplateView, DetailView
+from django.views.generic import DetailView
 from ..models.quiz_models import Quiz, QuizTaken
 from ..models.question_models import Question
 from ..models.answer_models import SelectedAnswer
-from django.shortcuts import redirect, render
-from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
+from django.shortcuts import render
 from django.utils import timezone
-
-
-@method_decorator(login_required, name="dispatch")
-class QuizIndex(ListView):
-    model = Quiz
-    template_name = "game/quiz/quiz_list.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["quizes"] = self.model.objects.all()
-        return context
 
 
 class QuizGame(DetailView):

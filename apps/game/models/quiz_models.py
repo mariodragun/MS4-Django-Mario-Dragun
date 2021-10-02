@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Quiz(models.Model):
     """Base Quiz model. Staff member or some other subscription user will be able to create a new quiz."""
 

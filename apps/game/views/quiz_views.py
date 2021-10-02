@@ -1,4 +1,3 @@
-from django import template
 from django.urls.base import reverse
 from django.views.generic import ListView, TemplateView, DetailView
 from ..models.quiz_models import Quiz, QuizTaken
@@ -9,19 +8,6 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.utils import timezone
 
-from django.http import HttpResponse, HttpResponseRedirect
-from django.template import loader
-
-
-def index(request):
-    """Basic index view."""
-
-    # load template
-    template = loader.get_template("game/index.html")
-    context = {}
-
-    # return response along with rendered template
-    return HttpResponse(template.render(context, request))
 
 
 @method_decorator(login_required, name="dispatch")

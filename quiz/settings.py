@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "apps.game",
     "apps.authentication",
     "apps.accounts",
+    "apps.payments",
 ]
 
 MIDDLEWARE = [

@@ -22,4 +22,5 @@ urlpatterns = [
     path("", include(("apps.game.urls", "apps.game"), namespace="quiz")),
     # path("accounts/", include(("apps.accounts.urls", "apps.accounts"), namespace="accounts")),
     path("auth/", include(("apps.authentication.urls", "apps.authentication"), namespace="authentication")),
+    path("payments/", include(("apps.payments.urls", "apps.payments"), namespace="payments")),
 ]

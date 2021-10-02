@@ -24,7 +24,11 @@ class UserRegisterForm(forms.Form):
     )
 
     def clean(self):
-        # get cleaned data from the form
+        """Overwriting clean method which and expanding functionlity to check:
+        - if username is taken
+        - if provided password and confirm_password fields have same value
+        """
+
         cleaned_data = super().clean()
 
         password = cleaned_data.get("password")

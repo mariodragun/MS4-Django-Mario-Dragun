@@ -97,6 +97,7 @@ class QuizGameView(DetailView):
     def _get_selected_answer(self, question, quiz):
         """Function to get all the selected answers for question and quiz."""
 
+        # get selected answer object
         selected_answer = SelectedAnswer.objects.filter(user=self.request.user, quiz=quiz, question=question).first()
 
         return selected_answer

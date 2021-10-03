@@ -10,11 +10,14 @@ class QuizQuestionView(DetailView):
     model = Question
 
     def post(self, request, pk):
+        # get question object based on the id
         question = self.model.objects.get(id=pk)
 
+        # get quiz id from the fields in the form
         quiz_id = self.request.POST["quiz"]
         quiz = Quiz.objects.get(id=quiz_id)
 
+        # get choice_id from the values on the form
         choice_id = self.request.POST.get("choice")
         user = request.user
 
@@ -24,10 +27,10 @@ class QuizQuestionView(DetailView):
         if not choice_id:
             return redirect(reverse("quiz:quiz_start", args=(quiz.id,)))
 
+        # try to get selected answer choice
         try:
             selected_answer_choice = question.answers.get(id=choice_id)
-        except Exception as e:
-            print(e)
+        except Exception:
             pass
 
         if selected_answer_choice and quiz and user:

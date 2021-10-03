@@ -3,7 +3,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.http import HttpResponse
 import stripe
-from stripe.api_resources import customer, payment_intent
 from quiz import settings
 from ..models.customer_models import StripeCustomer
 from ..models.payment_models import StripePayment
@@ -17,7 +16,7 @@ class StripeWebhook(View):
         """Create or Update payment object which is stored on our DB."""
 
         customer = StripeCustomer.objects.get(stripe_customer_id=event["data"]["object"]["customer"])
-        _, _ = StripePayment.objects.update_or_create(customer=customer, payment_intent_id=payment_intent)
+        StripePayment.objects.update_or_create(customer=customer, payment_intent_id=payment_intent)
 
     def _get_payment_information(self, event):
         """Get Payment information from the Stripe, including charge id's."""
@@ -48,7 +47,7 @@ class StripeWebhook(View):
         # construct event to validate information recieved
         try:
             event = stripe.Webhook.construct_event(payload, signature_header, settings.STRIPE_WEBHOOK_SECRET)
-        except stripe.error.SignatureVerificationError as e:
+        except stripe.error.SignatureVerificationError:
             return HttpResponse(status=400)
 
         # if event sent is checkout session complete use that information to store new user on our end.

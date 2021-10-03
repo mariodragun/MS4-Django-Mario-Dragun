@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic import View, TemplateView
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.http import HttpResponse
 import stripe
+from stripe.api_resources import line_item, payment_method
 from quiz import settings
 
 
@@ -36,3 +37,24 @@ class StripeWebhook(View):
 
 class PaymentSuccessView(TemplateView):
     template_name = "payments/success.html"
+
+
+class CheckoutSession(View):
+    def post(self, request):
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        donation_price_id = "price_1JfkQwHvCdKeKxUHteKKayOk"
+
+        checkout_session = stripe.checkout.Session.create(
+            payment_method_types=["card"],
+            line_items=[
+                {
+                    "price": donation_price_id,
+                    "quantity": 1,
+                }
+            ],
+            mode="payment",
+            success_url=settings.BASE_URL + "/payments/success.html",
+            cancel_url=settings.BASE_URL + "/payments/cancel.html",
+        )
+
+        return redirect(checkout_session.url)

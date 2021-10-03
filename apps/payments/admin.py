@@ -4,11 +4,13 @@ from .models.payment_models import StripePayment
 
 
 class StripeCustomerAdmin(admin.ModelAdmin):
-    pass
+    list_display = ["user", "stripe_customer_id", "created_at"]
 
 
 class StripePaymentAdmin(admin.ModelAdmin):
-    pass
+    list_display = [
+        "customer",
+    ]
 
 
 admin.site.register(StripeCustomer, StripeCustomerAdmin)

@@ -87,11 +87,7 @@ DATABASES = {"default": dj_database_url.config()}
 ENV_ROLE = os.getenv("ENV_ROLE", "development")
 if ENV_ROLE == "development":
     DEBUG = True
-    ALLOWED_HOSTS = [
-        "localhost",
-        "127.0.0.1",
-        "[::1]",
-    ]
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]"]
 else:
     SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

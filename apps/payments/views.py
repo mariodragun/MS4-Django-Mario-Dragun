@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import View
+from django.views.generic import View, TemplateView
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from django.http import HttpResponse
@@ -28,3 +28,7 @@ class StripeWebhook(View):
             print("Payment was successful.")
 
         return HttpResponse(status=200)
+
+
+class PaymentSuccessView(TemplateView):
+    template_name = "payments/success.html"

@@ -8,9 +8,7 @@ class StripeCustomerAdmin(admin.ModelAdmin):
 
 
 class StripePaymentAdmin(admin.ModelAdmin):
-    list_display = [
-        "customer",
-    ]
+    list_display = ["customer", "payment_intent_id"]
 
 
 admin.site.register(StripeCustomer, StripeCustomerAdmin)

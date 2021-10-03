@@ -6,6 +6,7 @@ from django.http import HttpResponse
 import stripe
 from stripe.api_resources import line_item, payment_method
 from quiz import settings
+from .models.customer_models import StripeCustomer
 
 
 # Webhook
@@ -43,11 +44,32 @@ class PaymentSuccessView(TemplateView):
 class CheckoutSession(TemplateView):
     template_name = "payments/checkout.html"
 
+    def _get_or_create_customer(self, user):
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+
+        # check if this user is in our database
+        customer = StripeCustomer.objects.filter(user=user).first()
+        if customer:
+            return customer.stripe_customer_id
+
+        # create a new customer on stripe side
+        customer = stripe.Customer.create(email=self.request.user.email)
+        # store new customer in the database
+        try:
+            StripeCustomer.objects.create(user=self.request.user, stripe_customer_id=customer["id"])
+        except Exception as e:
+            print(e)
+
+        return customer["id"]
+
     def post(self, request):
         stripe.api_key = settings.STRIPE_SECRET_KEY
         donation_price_id = "price_1JfkQwHvCdKeKxUHteKKayOk"
 
+        customer_id = self._get_or_create_customer(user=self.request.user)
+
         checkout_session = stripe.checkout.Session.create(
+            customer=customer_id,
             payment_method_types=["card"],
             line_items=[
                 {
@@ -56,8 +78,8 @@ class CheckoutSession(TemplateView):
                 }
             ],
             mode="payment",
-            success_url=settings.BASE_URL + "/payments/success.html",
-            cancel_url=settings.BASE_URL + "/payments/cancel.html",
+            success_url=settings.BASE_URL + "/payments/success/",
+            cancel_url=settings.BASE_URL + "/payments/cancel/",
         )
 
         return redirect(checkout_session.url)

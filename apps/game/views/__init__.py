@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
 
 
-class GameIndex(TemplateView):
+class GameIndexView(TemplateView):
     template_name = "game/index.html"

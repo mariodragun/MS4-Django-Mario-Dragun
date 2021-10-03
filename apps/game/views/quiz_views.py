@@ -90,7 +90,7 @@ class GameQuiz:
         return status
 
 
-class QuizGame(DetailView):
+class QuizGameView(DetailView):
     model = Quiz
     template_name = "game/quiz.html"
 

@@ -6,7 +6,7 @@ from ..models.answer_models import SelectedAnswer
 from django.shortcuts import redirect
 
 
-class QuizQuestion(DetailView):
+class QuizQuestionView(DetailView):
     model = Question
 
     def post(self, request, pk):

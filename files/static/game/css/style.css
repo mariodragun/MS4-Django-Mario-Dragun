@@ -2,6 +2,7 @@
     color: rgb(108, 117, 125) !important;
 }
 
+/* Quiz description template styling */
 #quiz-description .card {
     min-width: 40%;
     margin-top: 40px;
@@ -16,8 +17,12 @@
     float: right;
 }
 
-#question-list{
-    margin: 20px 0;
+
+/* question list items */
+#question-list li {
+    margin-bottom: 10px;
+    border: 1px solid #DEDEDE;
+    box-shadow: 0 3px 3px #DEDEDE;
 }
 
 #question-list li legend {
@@ -28,7 +33,7 @@
     padding: 20px 40px;
 }
 
-
+/* Quiz completed template styling */
 #quiz-completed .card {
     padding: 40px 20px;
     box-shadow: 0 3px 3px #DEDEDE;

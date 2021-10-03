@@ -15,8 +15,14 @@ class StripeWebhook(View):
     def _create_or_update_payment(self, event, payment_intent):
         """Create or Update payment object which is stored on our DB."""
 
-        customer = StripeCustomer.objects.get(stripe_customer_id=event["data"]["object"]["customer"])
-        StripePayment.objects.update_or_create(customer=customer, payment_intent_id=payment_intent)
+        # try to create and update Payment object, in the case that there is no customer
+        # with that id on our end, we will not store anything.
+        try:
+            customer = StripeCustomer.objects.get(stripe_customer_id=event["data"]["object"]["customer"])
+            # create or update StripePayment object.
+            StripePayment.objects.update_or_create(customer=customer, payment_intent_id=payment_intent)
+        except Exception:
+            pass
 
     def _get_payment_information(self, event):
         """Get Payment information from the Stripe, including charge id's."""

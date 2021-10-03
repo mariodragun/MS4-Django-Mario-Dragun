@@ -1,3 +1,14 @@
 #nav-donate {
     color: rgb(108, 117, 125) !important;
 }
+
+
+/* Checkout button style */
+.button-wrapper {
+    padding: 10px;
+    text-align: center;
+}
+
+.button-wrapper button {
+    min-width: 30%;
+}

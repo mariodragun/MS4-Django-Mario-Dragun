@@ -27,6 +27,10 @@ class StripeWebhook(View):
         if event["type"] == "checkout.session.completed":
             print("Payment was successful.")
 
+        if event["type"] == "charge.succeeded":
+            # process this charge information to get all the necesarry information
+            pass
+
         return HttpResponse(status=200)
 
 

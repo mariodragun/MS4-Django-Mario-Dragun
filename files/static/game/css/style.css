@@ -28,9 +28,6 @@
     padding: 20px 40px;
 }
 
-#quiz-completed {
-    margin-top: 20px;
-}
 
 #quiz-completed .card {
     padding: 40px 20px;
@@ -57,8 +54,4 @@
 
 .quiz-list-item .quiz-start-btn {
     float: right;
-}
-
-.error-output {
-    margin-top: 40px;
 }

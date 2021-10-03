@@ -8,17 +8,23 @@
 {% block title %} Quiz - Checkout {% endblock %}
 
 {% block content %}
-    <section>
-        <div class="donations">
-            <div class="description">
-                <h2>Thank you for considering donations.</h2>
-                <p>With small donations we will continue making games</p>
+    <div class="donations margin-top-base">
+        <div class="d-flex justify-content-center" id="card-donations">
+            <div class="card base-card">
+                <div class="card-body">
+                    <h5 class="card-title">Thank you for considering donations</h5>
+                    <p class="card-text">With small donations we will be able to continue making games and paying server support.</p>
+                    <p>We are using Stripe to enable donations which will redirect you to a safe page for making payment.</p>
+                </div>
+                <div class="d-grid d-md-block button-wrapper" style="padding: 10px;">
+                    <form action="/payments/checkout/" method="POST">
+                        <button class="btn btn-primary" type="submit" id="checkout-button">Checkout</button>
+                    </form>
+                </div>
+                
             </div>
         </div>
-        <form action="/payments/checkout/" method="POST">
-            <button type="submit" id="checkout-button">Checkout</button>
-        </form>
-    </section>
+    </div>
 {% endblock %}
 
 {% block extra_scripts %}

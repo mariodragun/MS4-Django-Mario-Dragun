@@ -7,7 +7,7 @@
 
 {% block content %}
     {% if quizes %}
-        <div class="d-flex justify-content-center" id="quiz-completed">
+        <div class="d-flex justify-content-center margin-top-base" id="quiz-completed">
             {% for quiz in quizes %}
                 <div class="card quiz-list-item">
                     <div class="card-body">
@@ -21,7 +21,7 @@
             {% endfor %}
         </div>
     {% else %}
-        <div class="d-flex justify-content-center error-output">
+        <div class="d-flex justify-content-center error-output margin-top-base">
             <div class="alert alert-secondary" role="alert">
                 {{ error_message }}
             </div>

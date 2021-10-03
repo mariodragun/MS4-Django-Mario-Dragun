@@ -2,6 +2,10 @@
     margin-top: 60px;
 }
 
+.base-card {
+    box-shadow: 0 3px 3px #DEDEDE;
+}
+
 /* Default color schema for the project */
 .nav-item-active {
     color: rgb(108, 117, 125) !important;

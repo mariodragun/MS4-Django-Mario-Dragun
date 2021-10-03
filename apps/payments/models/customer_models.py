@@ -7,6 +7,9 @@ class StripeCustomer(models.Model):
     quiz users itself.
     """
 
+    def __str__(self) -> str:
+        return str(self.user) + " - " + str(self.stripe_customer_id)
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     stripe_customer_id = models.CharField(max_length=512)
 

@@ -22,6 +22,10 @@ class Quiz(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, db_index=True)
 
+    class Meta:
+        # define better plural name on the admin view
+        verbose_name_plural = "Quizes"
+
 
 class QuizTaken(models.Model):
     """Model which will store quiz which user took. With this we are adding possibility to show
@@ -46,3 +50,7 @@ class QuizTaken(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True, db_index=True)
+
+    class Meta:
+        # define better plural name on the admin view
+        verbose_name_plural = "Quizes Taken"

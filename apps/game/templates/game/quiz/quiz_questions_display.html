@@ -1,6 +1,6 @@
 <ul class="list-group" id="question-list">
     {% for question in questions_list %}
-        {% comment %} disabled entry {% endcomment %}
+
         {% if question.selected_answer_for_this_question %}
             <li class="list-group-item">
                 <div {% if question.answer_is_correct %} class="row correct" {% else %} class="row" {% endif %}>

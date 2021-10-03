@@ -1,0 +1,8 @@
+.margin-top-base {
+    margin-top: 60px;
+}
+
+/* Default color schema for the project */
+.nav-item-active {
+    color: rgb(108, 117, 125) !important;
+}

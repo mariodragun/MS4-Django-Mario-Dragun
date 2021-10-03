@@ -1,5 +1,7 @@
 from django.urls import path
-from .views import StripeWebhook, PaymentSuccessView, CheckoutSession
+from .views.checkout_views import CheckoutSession
+from .views.success_views import PaymentSuccessView
+from .views.webhook_views import StripeWebhook
 
 
 urlpatterns = [

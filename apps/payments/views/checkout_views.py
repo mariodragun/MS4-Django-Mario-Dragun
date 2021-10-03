@@ -1,43 +1,10 @@
-from django.shortcuts import redirect, render
-from django.views.generic import View, TemplateView
+from django.shortcuts import redirect
+from django.views.generic import TemplateView
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
-from django.http import HttpResponse
 import stripe
-from stripe.api_resources import line_item, payment_method
 from quiz import settings
-from .models.customer_models import StripeCustomer
-
-
-# Webhook
-@method_decorator(csrf_exempt, name="dispatch")
-class StripeWebhook(View):
-    """View which will process incomming webhook information"""
-
-    def post(self, request):
-        # get the stripe payload
-        payload = request.body
-        signature_header = self.request.META["HTTP_STRIPE_SIGNATURE"]
-
-        event = None
-
-        try:
-            event = stripe.Webhook.construct_event(payload, signature_header, settings.STRIPE_WEBHOOK_SECRET)
-        except stripe.error.SignatureVerificationError as e:
-            return HttpResponse(status=400)
-
-        if event["type"] == "checkout.session.completed":
-            print("Payment was successful.")
-
-        if event["type"] == "charge.succeeded":
-            # process this charge information to get all the necesarry information
-            pass
-
-        return HttpResponse(status=200)
-
-
-class PaymentSuccessView(TemplateView):
-    template_name = "payments/success.html"
+from ..models.customer_models import StripeCustomer
 
 
 @method_decorator(csrf_exempt, name="dispatch")
@@ -45,29 +12,40 @@ class CheckoutSession(TemplateView):
     template_name = "payments/checkout.html"
 
     def _get_or_create_customer(self, user):
+        """Get or create stripe customer, if there is already a stripe customer in our DB
+        which belongs to the current user, it will return it's customer ID.
+        If Customer is not found in our DB it will create a new one, first on Stripe side,
+        and after that in our DB.
+        """
+
         stripe.api_key = settings.STRIPE_SECRET_KEY
 
         # check if this user is in our database
         customer = StripeCustomer.objects.filter(user=user).first()
         if customer:
+            # return customer id
             return customer.stripe_customer_id
 
         # create a new customer on stripe side
         customer = stripe.Customer.create(email=self.request.user.email)
+
         # store new customer in the database
         try:
             StripeCustomer.objects.create(user=self.request.user, stripe_customer_id=customer["id"])
-        except Exception as e:
-            print(e)
+        except Exception:
+            pass
 
+        # return customer id
         return customer["id"]
 
     def post(self, request):
         stripe.api_key = settings.STRIPE_SECRET_KEY
         donation_price_id = "price_1JfkQwHvCdKeKxUHteKKayOk"
 
+        # get customer id
         customer_id = self._get_or_create_customer(user=self.request.user)
 
+        # create checkout session
         checkout_session = stripe.checkout.Session.create(
             customer=customer_id,
             payment_method_types=["card"],
@@ -82,4 +60,5 @@ class CheckoutSession(TemplateView):
             cancel_url=settings.BASE_URL + "/payments/cancel/",
         )
 
+        # return redirect to the session  url (it will redirect to Stripe side)
         return redirect(checkout_session.url)

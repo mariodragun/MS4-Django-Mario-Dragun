@@ -39,7 +39,10 @@ class PaymentSuccessView(TemplateView):
     template_name = "payments/success.html"
 
 
-class CheckoutSession(View):
+@method_decorator(csrf_exempt, name="dispatch")
+class CheckoutSession(TemplateView):
+    template_name = "payments/checkout.html"
+
     def post(self, request):
         stripe.api_key = settings.STRIPE_SECRET_KEY
         donation_price_id = "price_1JfkQwHvCdKeKxUHteKKayOk"

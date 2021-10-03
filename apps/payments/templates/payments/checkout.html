@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+
+{% load static %}
+{% block extra_styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'common/css/quiz.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="donations">
+            <div class="description">
+                <h2>Thank you for considering donations.</h2>
+                <p>With small donations we will continue making games</p>
+            </div>
+        </div>
+        <form action="/payments/checkout/" method="POST">
+            <button type="submit" id="checkout-button">Checkout</button>
+        </form>
+    </section>
+{% endblock %}
+
+{% block extra_scripts %}
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+{% endblock %}

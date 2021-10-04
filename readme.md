@@ -266,7 +266,6 @@ Accounts: Login/Register:
 - Safari
 
 
-#### Test
 
 #### Mobile responsive functions:
 

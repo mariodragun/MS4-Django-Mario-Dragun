@@ -330,7 +330,7 @@ CSS
 
 - [files/static/payment/css/style.css](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/css_validator/files-static-payments-css-style.JPG)
 
-Pep8 
+PEP8 
 
 - All of the files were tested, no issues found. Some of the files on Pep8 validator are getting error E501 (length more than 79).This is not issue, according [Django documentation](https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/coding-style/) length of 119 is allowed.
 

@@ -43,7 +43,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 
 
-- Easy access change database questions
+- Easy access and to change database questions
 
 - To add new questions
 
@@ -105,14 +105,15 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - [Tab view](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/tab_view_django.JPG)
 
-
+#### Fonts:
+- I used Roboto from, from Google Fonts
 
 ####
 
 
 - Main image was download from [Wallpaper Cave](https://wallpapercave.com/)
 
-
+#### Colors:
 
 
 ### Technology used:
@@ -242,7 +243,7 @@ The main goal of this project is to create online quiz using the Django framewor
 - Safari
 
 
-
+#### Test
 
 #### Mobile responsive functions:
 

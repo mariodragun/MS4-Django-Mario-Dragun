@@ -24,3 +24,6 @@ urlpatterns = [
     path("auth/", include(("apps.authentication.urls", "apps.authentication"), namespace="authentication")),
     path("payments/", include(("apps.payments.urls", "apps.payments"), namespace="payments")),
 ]
+
+# custom 404 page handler
+handler404 = "quiz.views.error_404"

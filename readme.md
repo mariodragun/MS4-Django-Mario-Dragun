@@ -223,7 +223,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - Create [quiz](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/quiz_creation.JPG) on Django App
 
-- Create quiz [questions](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/quiz_questions.JPG)
+- Create quiz [questions](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/quiz_questions.JPG))
 
 
 

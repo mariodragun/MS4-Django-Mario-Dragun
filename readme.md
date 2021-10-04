@@ -145,7 +145,11 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - Heroku Postgres for database
 
-- [PEP8 online](http://pep8online.com/) for validation of code
+- [PEP8 online validator](http://pep8online.com/) for validation of code
+
+- [W3C validator](https://validator.w3.org/)
+
+- [Jigsaw validator](https://jigsaw.w3.org/css-validator/)
 
 - Mockplus for wireframes
 
@@ -203,7 +207,7 @@ The main goal of this project is to create online quiz using the Django framewor
 #### Set environment variables
 
 
-- Click the Settings tab and then click the [Reveal Config Vars button](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heroku_config_vars.JPG)) 
+- Click the Settings tab and then click the [Reveal Config Vars button](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heroku_config_vars.JPG)
 
 
 #### Deployment`s final steps

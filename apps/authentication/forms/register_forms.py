@@ -9,7 +9,7 @@ class UserRegisterForm(forms.Form):
     first_name = forms.CharField(label="First Name")
     last_name = forms.CharField(label="Last Name")
 
-    email = forms.EmailField(label="email")
+    email = forms.EmailField(label="Email")
     username = forms.CharField(label="Username")
 
     password = forms.CharField(
@@ -18,7 +18,7 @@ class UserRegisterForm(forms.Form):
         widget=forms.PasswordInput(),
     )
     confirm_password = forms.CharField(
-        label="Change Password",
+        label="Confirm Password",
         strip=False,
         widget=forms.PasswordInput(),
     )

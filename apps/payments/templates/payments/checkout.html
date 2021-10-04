@@ -18,6 +18,7 @@
                 </div>
                 <div class="d-grid d-md-block button-wrapper">
                     <form action="/payments/checkout/" method="POST">
+                        {% csrf_token %}
                         <button class="btn btn-primary" type="submit" id="checkout-button">Checkout</button>
                     </form>
                 </div>

@@ -1,13 +1,13 @@
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
 import stripe
 from quiz import settings
 from ..models.customer_models import StripeCustomer
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
-@method_decorator(csrf_exempt, name="dispatch")
+@method_decorator(login_required, name="dispatch")
 class CheckoutSession(TemplateView):
     template_name = "payments/checkout.html"
 

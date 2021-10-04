@@ -245,7 +245,9 @@ Accounts: Login/Register:
 
 - Create [Stripe](https://stripe.com/ie?utm_campaign=paid_brand-IE_en_Search_Brand_Stripe-1615558792&utm_medium=cpc&utm_source=google&ad_content=307395195086&utm_term=kwd-308032378313&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=CjwKCAjwzOqKBhAWEiwArQGwaF7NrJCrJFTgyPVNuW475XepIbMZDUXt1BMI_iCGKfReupMZ3km9qxoCHHUQAvD_BwE) account
 
-- Set stripe product/price 
+- Set stripe [product/price](https://stripe.com/ie?utm_campaign=paid_brand-IE_en_Search_Brand_Stripe-1615558792&utm_medium=cpc&utm_source=google&ad_content=307395195086&utm_term=kwd-308032378313&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=CjwKCAjwzOqKBhAWEiwArQGwaF7NrJCrJFTgyPVNuW475XepIbMZDUXt1BMI_iCGKfReupMZ3km9qxoCHHUQAvD_BwE)
+
+-Set [donations](https://support.stripe.com/questions/how-to-accept-donations-through-stripe)
 
 
 

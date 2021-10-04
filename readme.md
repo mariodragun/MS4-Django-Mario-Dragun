@@ -227,8 +227,7 @@ Accounts: Login/Register:
 #### Set environment variables
 
 
-- Click the Settings tab and then click the [Reveal Config Vars button](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heroku_config_vars.JPG)
-
+- Click the Settings tab and then click the Reveal Config Vars button
 
 #### Deployment`s final steps
 

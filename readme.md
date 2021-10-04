@@ -110,7 +110,7 @@ The main goal of this project is to create online quiz using the Django framewor
 ####
 
 
-- Main image was download from [Wallpaper Cave](https://wallpapercave.com/question-mark-wallpapers)
+- Main image was download from [Wallpaper Cave](https://wallpapercave.com/)
 
 
 
@@ -235,13 +235,11 @@ The main goal of this project is to create online quiz using the Django framewor
 #### Application was tested on browsers: 
 
 
-- [Chrome](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/chrome_view_django.JPG)
+- Chrome
 
-- [Firefox](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/firefox_view_django.JPG)
+- Firefox
 
-- [Iphone 11](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/mobile_view_django.jpg)
-
-- [Tab](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/tab_view_django.JPG)
+- Safari
 
 
 

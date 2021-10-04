@@ -43,7 +43,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 
 
-- Easy access and to change database questions
+- Easy access 
 
 - To add new questions
 
@@ -69,7 +69,7 @@ The main goal of this project is to create online quiz using the Django framewor
 #### Project has the following sections:
 
 
-- Home page contains image and navigation bar with access to login, register, admin, 
+- Home page contains image and navigation bar with access to login, register,  
 
 - Login page contains username field, pasword filed and login button
 
@@ -115,6 +115,23 @@ The main goal of this project is to create online quiz using the Django framewor
 
 #### Colors:
 
+ Navigation bar:
+
+ - rgb(108, 117, 125)
+
+Quiz: Completed:
+
+- #9ABC66
+
+Quiz list items:
+
+- #DEDEDE
+
+Accounts: Login/Register:
+
+- on card box shadow: #DEDEDE; 
+
+- card button rgb(104, 145, 162)
 
 ### Technology used:
 

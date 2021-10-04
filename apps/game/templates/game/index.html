@@ -3,12 +3,31 @@
 {% load static %}
 
 {% block extra_styles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'common/css/index.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'common/css/components/background_image.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/css/index.css' %}">
 {% endblock %}
 
 {% block content_outside %}
-    <div class="bg">
-        <img src="/files/static/common/images/photo_main.jpg" id="img-bg" />
+    <div class="banner">
+        <img class="photo-main" src="/files/static/common/images/quiz_patterns.jpeg" alt="We're Sorry - It looks like your browser can not open this image">
+        <div class="layer"></div>
     </div>
+{% endblock %}
+
+{% block content %}
+    <div class="quiz-welcome">
+        <div class="justify-content-center" id="welcome">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="question-wrapper">
+                        <i class="fas fa-question"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="welcome-text col-sm">
+                    <h1 class="text-center">Quiz Competition</h1>
+                </div>
+            </div>
+        </div>
+    </div>   
 {% endblock %}

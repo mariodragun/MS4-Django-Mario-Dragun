@@ -314,6 +314,25 @@ HTML:
 
 - [Settings page](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/test_w3c/setings_page_w3c.JPG)
 
+
+#CSS testing
+
+- [files/static/accounts/css/index.css](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/css_validator/files-static-account-css-index.JPG)
+
+- [files/statis/accounts/css/style.css](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/css_validator/files-static-account-css-style.JPG)
+
+- [files/static/account/authentication/css/login.css](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/css_validator/files-static-authentication-css-login.JPG)
+
+- [files/static/common/css/style.css](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/css_validator/files-static-common-css-style.JPG)
+
+- [files/static/common/error/style.css](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/css_validator/files-static-common-error-style.JPG)
+
+- [files/static/game/css/style.css](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/css_validator/files-static-game-css-style.JPG)
+
+- [files/static/payment/css/style.css](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/css_validator/files-static-payments-css-style.JPG)
+
+
+
 #### Donation testing
 
 - [Stripe payment](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/payment_stripe/stripe_payment_1.JPG)

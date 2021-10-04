@@ -37,7 +37,7 @@
 #welcome .question-wrapper {
     border-radius: 250px;
     height: 250px;
-    width: 250px;
+    max-width: 250px;
     background: #F8FAF5;
     margin:0 auto;
     text-align: center;
@@ -54,4 +54,24 @@
 #welcome .welcome-text{
     font-weight: 900;
     color: #fff;
+}
+
+@media only screen and (max-width: 320px) {
+    /* wrapper for the question icon */
+    #welcome .question-wrapper {
+        border-radius: 200px;
+        height: 200px;
+        max-width: 200px;
+        background: #F8FAF5;
+        margin:0 auto;
+        text-align: center;
+    }
+
+    #welcome  .question-wrapper i {
+        color: #353585;
+        font-size: 9rem;
+        line-height: 200px;
+        margin-left:-10px;
+        padding-top: 5px;
+    }
 }

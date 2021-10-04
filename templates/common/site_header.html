@@ -1,26 +1,44 @@
 <header class="p-3 bg-dark text-white" id="header-nav">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid"> 
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="main-navbar">
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                    <li><a href="{% url 'quiz:index' %}" class="nav-link px-2 text-white" id="nav-index">Home</a></li>
+                    <li><a href="{% url 'quiz:quiz_list_index' %}" class="nav-link px-2 text-white" id="nav-quiz">Quiz</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'payments:stripe_checkout' %}" class="nav-link px-2 text-white" id="nav-donate">Donate</a></li>
+                    {% endif %}
+                </ul>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="{% url 'quiz:index' %}" class="nav-link px-2 text-white" id="nav-index">Home</a></li>
-            <li><a href="{% url 'quiz:quiz_list_index' %}" class="nav-link px-2 text-white" id="nav-quiz">Quiz</a></li>
-            {% if user.is_authenticated %}
-                <li><a href="{% url 'payments:stripe_checkout' %}" class="nav-link px-2 text-white" id="nav-donate">Donate</a></li>
-            {% endif %}
-        </ul>
-
-
-        <div class="text-end">
-            {% if user.is_authenticated %}
-                {% if user.is_authenticated and user.is_staff %}
-                    <a href="/admin" class="btn btn-outline-light me-2">Admin</a>
-                {% endif %}
-                <a class="btn btn-outline-light me-2" href="{% url 'accounts:account_settings' %}" role="button">Settings</a>
-                <a class="btn btn-outline-light me-2" href="{% url 'authentication:logout' %}" role="button">Logout</a>
-            {% else %}
-                <a class="btn btn-outline-light me-2" href="{% url 'authentication:login' %}" role="button">Login</a>
-                <a class="btn btn-warning" href="{% url 'authentication:register' %}" role="button">Register</a>
-            {% endif %}
+                <div class="pull-right">
+                    {% if not user.is_authenticated %}
+                        <a class="btn btn-outline-light me-2" href="{% url 'authentication:login' %}" role="button">Login</a>
+                        <a class="btn btn-warning" href="{% url 'authentication:register' %}" role="button">Register</a>
+                    {% endif %}
+                    <ul class="navbar-nav col-auto mb-2 mb-sm-0 pull-right">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="user-icon"><i class="fas fa-user-circle"></i></span>{{user.username}}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                                    <li><a class="dropdown-item" href="{% url 'accounts:account_settings' %}">Settings</a></li>
+                                    {% if user.is_authenticated and user.is_staff %}
+                                        <li><a class="dropdown-item" href="/admin/">Admin</a></li>
+                                    {% endif %}
+                                    <li><a class="dropdown-item" href="{% url 'authentication:logout' %}">Logout</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                
+            </div>
         </div>
-    </div>
+    </nav>
+
 </header>

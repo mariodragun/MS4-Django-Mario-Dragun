@@ -183,9 +183,9 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - Press Button [New](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heroku_button_new.JPG)
 
-- Select Create a New App, enter the [app name and select region](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_create_new_app.JPG)
+- Select Create a New App, enter the [app name and select region](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heroku_create_new_app.JPG)
 
-- Press Resource / add-ons and search for [Heruku Postgres database](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_postgres_database.JPG)
+- Press Resource / add-ons and search for [Heruku Postgres database](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heroku_postgres_database.JPG)
 
 
 
@@ -209,13 +209,13 @@ The main goal of this project is to create online quiz using the Django framewor
 #### Deployment`s final steps
 
 
-- Select the [Deploy](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_deployment.JPG) tab and click Enable Automation Deployment 
+- Select the [Deploy](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heroku_deployment.JPG) tab and click Enable Automation Deployment 
 
 - Install Heroku CLI on PC
 
 - Run PowerShell commands to create super user on Django app: heroku run bash --app mariodragun/MS4-Django-Mario-Dragun, python manage.py migrate, python manage.py createsuperuser
 
-- Register super user [name and password](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_superuser.JPG)
+- Register super user [name and password](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heroku_superuser.JPG)
 
 - Create [quiz](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/quiz_creation.JPG) on Django App
 
@@ -234,6 +234,8 @@ The main goal of this project is to create online quiz using the Django framewor
 - Chrome
 
 - Firefox
+
+- Iphone
 
 
 
@@ -263,6 +265,8 @@ The main goal of this project is to create online quiz using the Django framewor
 - That admin can delete users
 
 - That admin can add new or to remove old questions
+
+- That donation is functional
 
 
 

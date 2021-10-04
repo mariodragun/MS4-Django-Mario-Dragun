@@ -4,6 +4,8 @@ from ..models.question_models import Question
 from ..models.answer_models import SelectedAnswer
 from django.shortcuts import render
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
 class QuizStatus:
@@ -90,6 +92,7 @@ class GameQuiz:
         return status
 
 
+@method_decorator(login_required, name="dispatch")
 class QuizGameView(DetailView):
     model = Quiz
     template_name = "game/quiz.html"

@@ -12,12 +12,12 @@
                         {% for answer in question.answers %}
                             {{ selected_answer_for_this_question.content }}
                             {% if answer.answer in question.selected_answer_for_this_question.content %}
-                                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ answer.id }}" checked disabled>
-                                <label for="choice{{ forloop.counter }}">{{ answer.answer }}</label><br>
+                                <input type="radio" name="choice" id="choice{{ question.question.id }}-{{ forloop.counter }}" value="{{ answer.id }}" checked disabled>
+                                <label for="choice{{ question.question.id }}-{{ forloop.counter }}">{{ answer.answer }}</label><br>
                                 <input type="hidden" name="quiz" value="{{ quiz_object.id }}"/>
                             {% else %}
-                                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ answer.id }}" disabled>
-                                <label for="choice{{ forloop.counter }}">{{ answer.answer }}</label><br>
+                                <input type="radio" name="choice" id="choice{{ question.question.id }}-{{ forloop.counter }}" value="{{ answer.id }}" disabled>
+                                <label for="choice{{ question.question.id }}-{{ forloop.counter }}">{{ answer.answer }}</label><br>
                                 <input type="hidden" name="quiz" value="{{ quiz_object.id }}" />
                             {% endif %}
                         {% endfor %}
@@ -36,8 +36,8 @@
                         <legend><h3>Question: {{ question.question.title }}</h3></legend>
                         {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
                         {% for answer in question.answers %}
-                            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ answer.id }}">
-                            <label for="choice{{ forloop.counter }}">{{ answer.answer }}</label><br>
+                            <input type="radio" name="choice" id="choice{{ question.question.id }}-{{ forloop.counter }}" value="{{ answer.id }}">
+                            <label for="choice{{ question.question.id }}-{{ forloop.counter }}">{{ answer.answer }}</label><br>
                             <input type="hidden" name="quiz" value="{{ quiz_object.id }}" />
                         {% endfor %}
                     </fieldset>

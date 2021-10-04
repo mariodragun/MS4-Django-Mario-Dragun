@@ -4,8 +4,11 @@ from ..models.quiz_models import Quiz
 from ..models.question_models import Question
 from ..models.answer_models import SelectedAnswer
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
+@method_decorator(login_required, name="dispatch")
 class QuizQuestionView(DetailView):
     model = Question
 

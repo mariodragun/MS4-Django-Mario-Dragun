@@ -31,3 +31,11 @@ class ChangePasswordForm(forms.Form):
             msg = "Password and Confirm Password should be the same value."
             self.add_error("password", msg)
             self.add_error("confirm_password", msg)
+
+    def save(self, user):
+        # get cleaned data
+        cleaned_data = self.cleaned_data
+
+        # set new user password
+        user.password = make_password(cleaned_data.get("password"))
+        user.save()

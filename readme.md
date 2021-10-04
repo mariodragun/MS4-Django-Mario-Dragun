@@ -163,6 +163,8 @@ Accounts: Login/Register:
 
 - Heroku Postgres for database
 
+- [Stripe](https://stripe.com/) for payments
+
 - [PEP8 online validator](http://pep8online.com/) for validation of code
 
 - [W3C validator](https://validator.w3.org/)

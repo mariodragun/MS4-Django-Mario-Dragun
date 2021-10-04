@@ -15,6 +15,7 @@
                 {% if user.is_authenticated and user.is_staff %}
                     <a href="/admin" class="btn btn-outline-light me-2">Admin</a>
                 {% endif %}
+                <a class="btn btn-outline-light me-2" href="{% url 'accounts:account_settings' %}" role="button">Settings</a>
                 <a class="btn btn-outline-light me-2" href="{% url 'authentication:logout' %}" role="button">Logout</a>
             {% else %}
                 <a class="btn btn-outline-light me-2" href="{% url 'authentication:login' %}" role="button">Login</a>

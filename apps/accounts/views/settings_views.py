@@ -1,8 +1,11 @@
 from django.views.generic import TemplateView
 from apps.authentication.forms.change_password_forms import ChangePasswordForm
 from apps.authentication.forms.basic_user_information_forms import BasicUserInformationForm
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
+@method_decorator(login_required, name="dispatch")
 class AccountSettings(TemplateView):
     template_name = "accounts/settings.html"
 

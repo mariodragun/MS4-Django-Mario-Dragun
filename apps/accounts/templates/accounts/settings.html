@@ -13,83 +13,82 @@
 {% block content %}
     <div class="row justify-content-center margin-top-base" id="settings">
 
-        <div class="col-12 col-lg-10 col-xl-8 mx-auto">
-            <h2 class="h3 mb-4 page-title">Settings</h2>
-            <div class="my-4" id="basic-user-info-change">
-                <h5 class="mb-0 mt-5">User Account Settings</h5>
-                <p>Change your information.</p>
-                <hr class="my-4" />
-                <strong class="mb-0">Required information</strong>
-                <div class="list-group mb-5 shadow">
-                    <div class="list-group-item">
-                        <div class="row align-items-center">
-                            <div class="item">
-                                <span>Username:</span> {{ user.username }}
+        <div class="row messages">
+            <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+                {% if messages %}
+                    <div class="message-data">
+                        {% for message in messages %}
+                            <span class="alert alert-{{ message.tags }}">{{ message }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+                <h2 class="h3 mb-4 page-title">Settings</h2>
+                <div class="my-4" id="basic-user-info-change">
+                    <h5 class="mb-0 mt-5">User Account Settings</h5>
+                    <p>Change your information.</p>
+                    <hr class="my-4" />
+                    <strong class="mb-0">Required information</strong>
+                    <div class="list-group mb-5 shadow">
+                        <div class="list-group-item">
+                            <div class="row align-items-center">
+                                <div class="item">
+                                    <span>Username:</span> {{ user.username }}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <strong class="mb-0">Personal Information</strong>
-                <div class="list-group mb-5 shadow">
-                    <div class="list-group-item">
-                        <div class="row align-items-center" id="personal-information">
-                            <form method="post" action="{% url 'authentication:change_basic_information' %}" class="form-settings">
-                                {% csrf_token %}
-                                {% for field in basic_user_information_form %}
-                                    <div class="form-group">
-                                        <label for="{{field.id_for_label}}">{{ field.label_tag }}</label>
-                                        {{ field }}
-    
-
-                                        {% if field.errors %}
-                                            <div class="error">
-                                                {% for error in field.errors %}
-                                                    <span class="alert alert-danger">{{ error }}</span>
-                                                {% endfor %}
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                {% endfor %}
-
-                                <button class="btn btn-primary btn-block" type="submit">Change Personal Information</button>
-                            </form>
+                <div>
+                    <strong class="mb-0">Personal Information</strong>
+                    <div class="list-group mb-5 shadow">
+                        <div class="list-group-item">
+                            <div class="row align-items-center" id="personal-information">
+                                <form method="post" action="{% url 'authentication:change_basic_information' %}" class="form-settings">
+                                    {% csrf_token %}
+                                    {% for field in basic_user_information_form %}
+                                        <div class="form-group">
+                                            <label for="{{field.id_for_label}}">{{ field.label_tag }}</label>
+                                            {{ field }}
+        
+                                        </div>
+                                    {% endfor %}
+                                    
+                                    <button class="btn btn-primary btn-block" type="submit">Change Personal Information</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <strong class="mb-0">Password Change</strong>
-                <div class="list-group mb-5 shadow" id="password-change">
-                    <div class="list-group-item">
-                        <div class="row align-items-center">
-                            <form method="post" action="{% url 'authentication:change_password' %}" class="form-settings">
-                                {% csrf_token %}
-                                {% for field in change_password_form %}
-                                    <div class="item">
-                                        <span>{{ field.label_tag }}</span>
-                                        {{ field }}
+                <div>
+                    <strong class="mb-0">Password Change</strong>
+                    <div class="list-group mb-5 shadow" id="password-change">
+                        <div class="list-group-item">
+                            <div class="row align-items-center">
+                                <form method="post" action="{% url 'authentication:change_password' %}" class="form-settings">
+                                    {% csrf_token %}
+                                    {% for field in change_password_form %}
+                                        <div class="item">
+                                            <span>{{ field.label_tag }}</span>
+                                            {{ field }}
 
-                                        {% if field.errors %}
-                                            <div class="error">
-                                                {% for error in field.errors %}
-                                                    <span class="alert alert-danger">{{ error }}</span>
-                                                {% endfor %}
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                {% endfor %}
+                                        </div>
+                                    {% endfor %}
 
-                                <button class="btn btn-primary btn-block" type="submit">Change Password</button>
-                            </form>
+                                    <button class="btn btn-primary btn-block" type="submit">Change Password</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-    
-            </div>
-
         </div>
-
     </div>
 
 {% endblock %}

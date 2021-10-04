@@ -1,3 +1,13 @@
 #personal-information button, #password-change button {
     margin-top: 10px;
 }
+
+
+.message-data span {
+    display: block;
+}
+
+.message-data .alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+}

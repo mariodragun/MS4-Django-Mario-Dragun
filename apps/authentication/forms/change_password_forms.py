@@ -15,6 +15,11 @@ class ChangePasswordForm(forms.Form):
         widget=forms.PasswordInput(),
     )
 
+    def __init__(self, *args, **kwargs):
+        super(ChangePasswordForm, self).__init__(*args, **kwargs)
+        for visible_field in self.visible_fields():
+            visible_field.field.widget.attrs["class"] = "form-control"
+
     def clean(self):
         cleaned_data = super().clean()
 

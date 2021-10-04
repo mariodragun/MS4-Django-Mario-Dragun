@@ -11,7 +11,7 @@
 
 
 {% block content %}
-    <div class="row justify-content-center" id="settings">
+    <div class="row justify-content-center margin-top-base" id="settings">
 
         <div class="col-12 col-lg-10 col-xl-8 mx-auto">
             <h2 class="h3 mb-4 page-title">Settings</h2>
@@ -19,50 +19,75 @@
                 <h5 class="mb-0 mt-5">User Account Settings</h5>
                 <p>Change your information.</p>
                 <hr class="my-4" />
-                <strong class="mb-0">Basic information</strong>
-                <p>Control security alert you will be notified.</p>
+                <strong class="mb-0">Required information</strong>
                 <div class="list-group mb-5 shadow">
                     <div class="list-group-item">
                         <div class="row align-items-center">
-                            <form method="post" action="/settings/basic-info-change" class="form-settings">
-                                <div class="item">
-                                    {{ render_field(form_basic.first_name, placeholder_text=user.first_name, prefil_value=user.first_name, class="form-control") }}
-                                </div>
-                                <div class="item">
-                                    {{ render_field(form_basic.last_name, placeholder_text=user.last_name, prefil_value=user.last_name, class="form-control") }}
-                                </div>
-                                <div class="item">
-                                    {{ render_field(form_basic.email, placeholder_text=user.email, prefil_value=user.email, class="form-control") }}
-                                </div>
+                            <div class="item">
+                                <span>Username:</span> {{ user.username }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Update Information</button>
+                <strong class="mb-0">Personal Information</strong>
+                <div class="list-group mb-5 shadow">
+                    <div class="list-group-item">
+                        <div class="row align-items-center" id="personal-information">
+                            <form method="post" action="{% url 'authentication:change_basic_information' %}" class="form-settings">
+                                {% csrf_token %}
+                                {% for field in basic_user_information_form %}
+                                    <div class="form-group">
+                                        <label for="{{field.id_for_label}}">{{ field.label_tag }}</label>
+                                        {{ field }}
+    
+
+                                        {% if field.errors %}
+                                            <div class="error">
+                                                {% for error in field.errors %}
+                                                    <span class="alert alert-danger">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+
+                                <button class="btn btn-primary btn-block" type="submit">Change Personal Information</button>
                             </form>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="my-4" id="password-change">
                 <strong class="mb-0">Password Change</strong>
-                <p>Control security alert you will be notified.</p>
-                <div class="list-group mb-5 shadow">
+                <div class="list-group mb-5 shadow" id="password-change">
                     <div class="list-group-item">
                         <div class="row align-items-center">
-                            <form method="post" action="/settings/password-change/" class="form-settings">
-                                <div class="item">
-                                    {{ render_field(form_password.password, placeholder_text="Password", type="password", class="form-control") }}
-                                </div>
+                            <form method="post" action="{% url 'authentication:change_password' %}" class="form-settings">
+                                {% csrf_token %}
+                                {% for field in change_password_form %}
+                                    <div class="item">
+                                        <span>{{ field.label_tag }}</span>
+                                        {{ field }}
 
-                                <div class="item">
-                                    {{ render_field(form_password.confirm_password, type="password", placeholder_text="Repeat password", class="form-control") }}
-                                </div>
+                                        {% if field.errors %}
+                                            <div class="error">
+                                                {% for error in field.errors %}
+                                                    <span class="alert alert-danger">{{ error }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
 
-                                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Change Password</button>
+                                <button class="btn btn-primary btn-block" type="submit">Change Password</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+    
+            </div>
+
         </div>
 
     </div>

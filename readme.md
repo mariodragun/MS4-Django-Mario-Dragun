@@ -245,9 +245,9 @@ Accounts: Login/Register:
 
 - Create [Stripe](https://stripe.com/ie?utm_campaign=paid_brand-IE_en_Search_Brand_Stripe-1615558792&utm_medium=cpc&utm_source=google&ad_content=307395195086&utm_term=kwd-308032378313&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=CjwKCAjwzOqKBhAWEiwArQGwaF7NrJCrJFTgyPVNuW475XepIbMZDUXt1BMI_iCGKfReupMZ3km9qxoCHHUQAvD_BwE) account
 
-- Set stripe [product/price](https://stripe.com/ie?utm_campaign=paid_brand-IE_en_Search_Brand_Stripe-1615558792&utm_medium=cpc&utm_source=google&ad_content=307395195086&utm_term=kwd-308032378313&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=CjwKCAjwzOqKBhAWEiwArQGwaF7NrJCrJFTgyPVNuW475XepIbMZDUXt1BMI_iCGKfReupMZ3km9qxoCHHUQAvD_BwE)
+- Set Stripe [product/price](https://stripe.com/ie?utm_campaign=paid_brand-IE_en_Search_Brand_Stripe-1615558792&utm_medium=cpc&utm_source=google&ad_content=307395195086&utm_term=kwd-308032378313&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=CjwKCAjwzOqKBhAWEiwArQGwaF7NrJCrJFTgyPVNuW475XepIbMZDUXt1BMI_iCGKfReupMZ3km9qxoCHHUQAvD_BwE)
 
--Set [donations](https://support.stripe.com/questions/how-to-accept-donations-through-stripe)
+- Set Stripe [donations](https://support.stripe.com/questions/how-to-accept-donations-through-stripe)
 
 
 
@@ -301,17 +301,17 @@ Validation tests:
 
 HTML:
 
-- [Home page]()
+- [Home page](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/test_w3c/home_page_w3c.JPG)
 
-- [Quiz page]()
+- [Quiz page](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/test_w3c/quiz_page_w3c.JPG)
 
-- [Donate page]()
+- [Donate page](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/test_w3c/donate_page_w3c.JPG)
 
-- [Login page]()
+- [Login page](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/test_w3c/login_page.JPG)
 
-- [Register page]()
+- [Register page](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/test_w3c/register_page_w3c.JPG)
 
-- [Settings page]()
+- [Settings page](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/test_w3c/setings_page_w3c.JPG)
 
 #### Donation testing
 

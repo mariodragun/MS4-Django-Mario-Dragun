@@ -235,11 +235,13 @@ The main goal of this project is to create online quiz using the Django framewor
 #### Application was tested on browsers: 
 
 
-- Chrome
+- [Chrome](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/chrome_view_django.JPG)
 
-- Firefox
+- [Firefox](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/firefox_view_django.JPG)
 
-- Iphone
+- [Iphone 11](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/mobile_view_django.jpg)
+
+- [Tab](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/tab_view_django.JPG)
 
 
 
@@ -248,9 +250,9 @@ The main goal of this project is to create online quiz using the Django framewor
 
 
 
-- phone
+- Phone
 
-- tab
+- Tab
 
 
 
@@ -271,6 +273,17 @@ The main goal of this project is to create online quiz using the Django framewor
 - That admin can add new or to remove old questions
 
 - That donation is functional
+
+#### Donation testing
+
+- [Stripe payment](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/payment_stripe/stripe_payment_1.JPG)
+
+- [Stripe payment confirmation](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/payment_stripe/stripe_payment_2.JPG)
+
+- [Stripe customers](https://github.com/mariodragun/MS4-Django-Mario-Dragun/tree/main/images/payment_stripe)
+
+- [Stripe payments](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/payment_stripe/stripe_payment_3.JPG)
+
 
 
 

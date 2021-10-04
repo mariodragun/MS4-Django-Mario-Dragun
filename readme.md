@@ -320,7 +320,7 @@ HTML:
 
 - [Stripe payment confirmation](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/payment_stripe/stripe_payment_2.JPG)
 
-- [Stripe customers](https://github.com/mariodragun/MS4-Django-Mario-Dragun/tree/main/images/payment_stripe)
+- [Stripe customers](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/payment_stripe/stripe_payment_4.JPG)
 
 - [Stripe payments](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/payment_stripe/stripe_payment_3.JPG)
 

@@ -243,6 +243,9 @@ Accounts: Login/Register:
 
 - Create quiz [questions](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/quiz_questions.JPG))
 
+- Create [Stripe](https://stripe.com/ie?utm_campaign=paid_brand-IE_en_Search_Brand_Stripe-1615558792&utm_medium=cpc&utm_source=google&ad_content=307395195086&utm_term=kwd-308032378313&utm_matchtype=e&utm_adposition=&utm_device=c&gclid=CjwKCAjwzOqKBhAWEiwArQGwaF7NrJCrJFTgyPVNuW475XepIbMZDUXt1BMI_iCGKfReupMZ3km9qxoCHHUQAvD_BwE) account
+
+- Set stripe product/price 
 
 
 
@@ -270,6 +273,8 @@ Accounts: Login/Register:
 
 - Tab
 
+Throughout the development of the project, I carried out testing. I used the Chrome Developer Tools consistently. The application structure and mobile-first layout was tested on Google Chrome, Firefox and Safari. The application was tested on the following smartphone devices: iPhone11, Google Pixel 3,
+
 
 
 #### Functionality tested:
@@ -289,6 +294,22 @@ Accounts: Login/Register:
 - That admin can add new or to remove old questions
 
 - That donation is functional
+
+Validation tests:
+
+HTML:
+
+- [Home page]()
+
+- [Quiz page]()
+
+- [Donate page]()
+
+- [Login page]()
+
+- [Register page]()
+
+- [Settings page]()
 
 #### Donation testing
 

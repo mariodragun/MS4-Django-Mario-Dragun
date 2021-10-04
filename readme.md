@@ -97,13 +97,13 @@ The main goal of this project is to create online quiz using the Django framewor
 
 #### Page design:
 
-- [Chrome view](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/chrome_view.JPG)
+- [Chrome view](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/chrome_view_django.JPG)
 
-- [Firefox view](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/firefox_view.JPG)
+- [Firefox view](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/firefox_view_django.JPG)
 
-- [Phone view](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/phone_view.JPG)
+- [Phone view](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/mobile_view_django.jpg)
 
-- [Tab view](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/ipad_view.JPG)
+- [Tab view](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/page%20view/tab_view_django.JPG)
 
 
 
@@ -181,7 +181,7 @@ The main goal of this project is to create online quiz using the Django framewor
 
 - Register on Heroku
 
-- Press Button [New](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_button_new.JPG)
+- Press Button [New](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heroku_button_new.JPG)
 
 - Select Create a New App, enter the [app name and select region](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_create_new_app.JPG)
 
@@ -203,7 +203,7 @@ The main goal of this project is to create online quiz using the Django framewor
 #### Set environment variables
 
 
-- Click the Settings tab and then click the [Reveal Config Vars button](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heruku_config_vars.JPG) 
+- Click the Settings tab and then click the [Reveal Config Vars button](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/images/deployment/heroku_config_vars.JPG)) 
 
 
 #### Deployment`s final steps

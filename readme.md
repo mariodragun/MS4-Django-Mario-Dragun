@@ -143,6 +143,8 @@ Accounts: Login/Register:
 
 - Bootstrap
 
+- Stripe
+
 - Django [requirements.txt](https://github.com/mariodragun/MS4-Django-Mario-Dragun/blob/main/requirements.txt)
 
 
@@ -162,8 +164,6 @@ Accounts: Login/Register:
 - [Heroku](https://id.heroku.com/login) to deploy web application
 
 - Heroku Postgres for database
-
-- [Stripe](https://stripe.com/) for payments
 
 - [PEP8 online validator](http://pep8online.com/) for validation of code
 
